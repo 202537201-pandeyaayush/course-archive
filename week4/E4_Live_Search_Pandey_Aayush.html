@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E4 - Live Search Filter - Aayush Pandey</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 30px; max-width: 500px; margin: auto; }
+    h1 { color: #1a56db; }
+    .student { color: #666; margin-bottom: 20px; }
+    #search {
+      width: 100%; box-sizing: border-box; padding: 10px 14px;
+      font-size: 16px; border: 2px solid #1a56db;
+      border-radius: 10px; margin-bottom: 14px;
+    }
+    .student-row {
+      padding: 10px 14px; margin-bottom: 6px; background: #f0f4ff;
+      border-radius: 8px; border: 1px solid #c8d4f0; font-size: 15px;
+    }
+    mark { background: #f7df1e; border-radius: 3px; padding: 1px 2px; }
+    #no-results { display: none; color: #9ca3af; text-align: center; padding: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Student Search</h1>
+  <p class="student">Pandey Aayush · 202537201 · Computer Engineering</p>
+
+  <input id="search" type="text" placeholder="Search students...">
+
+  <div id="student-list">
+    <div class="student-row" data-name="Pandey Aayush" data-course="Computer Engineering">
+      Pandey Aayush — Computer Engineering
+    </div>
+    <div class="student-row" data-name="Kim Jisoo" data-course="Web Programming">
+      Kim Jisoo — Web Programming
+    </div>
+    <div class="student-row" data-name="Park Minjun" data-course="Computer Science">
+      Park Minjun — Computer Science
+    </div>
+    <div class="student-row" data-name="Lee Sooyeon" data-course="Software Engineering">
+      Lee Sooyeon — Software Engineering
+    </div>
+    <div class="student-row" data-name="Choi Hyunwoo" data-course="Artificial Intelligence">
+      Choi Hyunwoo — Artificial Intelligence
+    </div>
+    <div class="student-row" data-name="Jung Yuna" data-course="Data Science">
+      Jung Yuna — Data Science
+    </div>
+  </div>
+
+  <p id="no-results">No students found.</p>
+
+  <script>
+    const searchInp = document.querySelector('#search');
+    const students = document.querySelectorAll('.student-row');
+    const noResults = document.querySelector('#no-results');
+
+    searchInp.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      let visible = 0;
+
+      students.forEach(student => {
+        const name = student.dataset.name.toLowerCase();
+        const course = student.dataset.course.toLowerCase();
+        const matches = name.includes(term) || course.includes(term);
+
+        if (matches) {
+          student.style.display = '';
+          visible++;
+
+          if (term) {
+            const nameHTML = student.dataset.name.replace(
+              new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'),
+              '<mark>$1</mark>'
+            );
+            student.innerHTML = nameHTML + ' — ' + student.dataset.course;
+          } else {
+            student.textContent = student.dataset.name + ' — ' + student.dataset.course;
+          }
+        } else {
+          student.style.display = 'none';
+        }
+      });
+
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    });
+  </script>
+<script src="../assets/site-nav.js"></script>
+</body>
+</html>

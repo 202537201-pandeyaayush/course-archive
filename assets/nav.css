@@ -1,0 +1,5 @@
+.site-dock{position:fixed;right:14px;bottom:14px;z-index:2147483000;display:flex;gap:6px;padding:6px;background:#fff;border:2px solid #101828;border-radius:14px;box-shadow:4px 4px 0 #101828;font:700 14px system-ui,sans-serif}
+.site-dock a,.site-dock button{all:unset;box-sizing:border-box;cursor:pointer;padding:8px 14px;border-radius:9px;background:#2F3BFF;color:#fff;font:700 14px system-ui,sans-serif;text-decoration:none}
+.site-dock button{background:#FFE45C;color:#101828}
+.site-dock a:focus-visible,.site-dock button:focus-visible{outline:3px solid #101828;outline-offset:2px}
+.site-footer{padding:1.2rem 1rem 5rem;text-align:center;color:#4B5576;background:#EEF1FF;border-top:2px solid #C9D0F5;font:15px system-ui,sans-serif}
