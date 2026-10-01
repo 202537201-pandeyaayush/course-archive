@@ -1,0 +1,28 @@
+:root{--ink:#101828;--blue:#2F3BFF;--sun:#FFE45C;--paper:#EEF1FF;--white:#fff;--muted:#4B5576;--line:#C9D0F5;--col:960px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.bar,.hero,main,.site-footer{padding-inline:max(1.25rem,calc((100% - var(--col))/2))}
+.bar{display:flex;gap:.6rem;align-items:center;padding-block:.8rem;background:var(--ink);color:#fff;position:sticky;top:0;z-index:5;font-weight:600;font-size:.95rem}
+.bar a{text-decoration:none;color:#fff;opacity:.75}.bar a:hover{opacity:1}
+.bar .here{opacity:1}.bar .sep{opacity:.4}
+.bar .back{margin-left:auto;background:var(--sun);color:var(--ink);border:0;border-radius:99px;padding:.3rem .95rem;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer}
+.hero{background:var(--blue);color:#fff;padding-block:clamp(2.5rem,8vw,5.5rem) clamp(2rem,5vw,3.5rem)}
+.hero h1{margin:0;font-size:clamp(3rem,11vw,7rem);line-height:.95;font-weight:800;letter-spacing:-.04em}
+.hero p{margin:1.2rem 0 0;font-size:1.2rem;max-width:38rem}
+main{flex:1;width:100%;padding-block:2rem 3.5rem}
+main h2{font-size:.8rem;margin:0 0 1rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+.rows{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.row{display:grid;grid-template-columns:auto 1fr auto;gap:1.1rem;align-items:center;padding:1rem 1.2rem;background:var(--white);border:2px solid var(--ink);border-radius:14px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.row:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--ink)}
+.num{display:grid;place-items:center;width:3rem;height:3rem;border-radius:10px;background:var(--sun);font-weight:800;font-size:1.3rem}
+.row.task{padding:.75rem 1.2rem}.row.task .num{width:2.5rem;height:2.5rem;font-size:1.05rem}
+.row h3{margin:0;font-size:1.2rem;font-weight:700}.row.task h3{font-size:1.05rem;font-weight:600}
+.row p{margin:.1rem 0 0;color:var(--muted);font-size:.95rem}
+.go{font-weight:700;color:var(--blue);font-size:.9rem}.go::after{content:" \2192"}
+main .rows+h2{margin-top:2.5rem}
+.empty{padding:1.5rem;border:2px dashed var(--line);border-radius:14px;color:var(--muted)}
+.site-footer{padding-block:1.5rem;text-align:center;color:var(--muted);border-top:2px solid var(--line);font-size:.9rem}
+@media(max-width:520px){.go{display:none}.row{grid-template-columns:auto 1fr}}
+@media(prefers-reduced-motion:reduce){.row{transition:none}}
