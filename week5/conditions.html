@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions (if_else) — Week 5</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="back-link" href="index.html">← Week 5 home</a>
+    <p class="eyebrow">WEEK 5 · JAVASCRIPT</p>
+    <h1>Conditions (if_else)</h1>
+    <p class="subtitle">Use if, else if, and else to check a score.</p>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>Folders &amp; files</h2>
+      <a class="file-link" href="index.html">Complete mini-app</a>
+      <a class="file-link active" href="conditions.html">Conditions (if_else)</a>
+      <a class="file-link" href="loops.html">Loops</a>
+      <a class="file-link" href="txt.html">txt.html</a>
+    </aside>
+    <section class="content">
+      <div class="content-top"><span>CONDITIONS(IF_ELSE)</span><span>WEEK 5</span></div>
+      <article class="lesson">
+        <h2>Grade Checker</h2>
+        <form id="gradeForm">
+          <label for="score">Enter your score (0–100):</label>
+          <input id="score" name="score" type="number" min="0" max="100" value="75" required>
+          <button type="submit">Check Grade</button>
+        </form>
+        <h2 id="gradeResult" class="result" aria-live="polite">Your grade will appear here.</h2>
+      </article>
+    </section>
+  </main>
+  <footer>Week 5 · Conditions practice</footer>
+  <script src="conditions.js"></script>
+</body>
+</html>
