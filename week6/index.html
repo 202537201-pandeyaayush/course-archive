@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 6 | Random Joke Fetcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="bar">
+    <a class="brand" href="../index.html">Web Programming</a>
+    <a class="back" href="../index.html">Back to archive</a>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">WEEK 06 / JAVASCRIPT</p>
+    <h1>Jokes,<br>on demand. <span aria-hidden="true">😂</span></h1>
+    <p>A tiny laugh break for your day. Pick a category, discover a joke, and save the ones you love.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel joke-panel" aria-labelledby="joke-title">
+      <div class="topline">
+        <p class="eyebrow">YOUR DAILY DOSE OF FUN</p>
+        <span id="joke-number" class="tag">JOKE 01</span>
+      </div>
+      <label for="category" class="field-label">Choose a category</label>
+      <select id="category">
+        <option value="all">A little bit of everything</option>
+        <option value="tech">Tech & coding</option>
+        <option value="school">School & study</option>
+        <option value="everyday">Everyday life</option>
+      </select>
+
+      <div class="joke-card">
+        <span class="big-emoji" aria-hidden="true">😄</span>
+        <h2 id="joke-title">Ready for a laugh?</h2>
+        <p id="setup" class="joke-text" aria-live="polite">Tap “Surprise me” to reveal your first joke.</p>
+        <div class="punchline-box">
+          <h3>And the punchline is…</h3>
+          <p id="punchline" aria-live="polite">The funny part goes here.</p>
+        </div>
+      </div>
+
+      <p id="status" class="status" role="status"></p>
+      <div class="actions">
+        <button id="load-joke" class="primary">🎲 Surprise me</button>
+        <button id="save-joke" class="secondary" disabled>♡ Save favourite</button>
+      </div>
+      <button id="online-joke" class="text-button">🌐 Try a fresh joke online</button>
+    </section>
+
+    <aside class="panel favourites-panel" aria-labelledby="favourites-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE GOOD ONES</p>
+          <h2 id="favourites-title">♡ Favourites</h2>
+        </div>
+        <span id="favourite-count" class="count">0</span>
+      </div>
+      <p class="aside-intro">Save a joke to keep it in your collection on this browser.</p>
+      <div id="favourites" class="favourites">
+        <p class="empty">No favourites yet. Find a joke that makes you smile!</p>
+      </div>
+      <button id="clear-favourites" class="clear" disabled>Clear favourites</button>
+    </aside>
+  </main>
+
+  <footer class="site-footer">WEEK 06 · WEB PROGRAMMING · MADE FOR A LITTLE FUN</footer>
+  <script src="script.js"></script>
+</body>
+</html>
