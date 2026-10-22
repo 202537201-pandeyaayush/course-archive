@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 6 Task 5 | Pokédex (PokéAPI)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="crumbbar"><div><a href="../index.html">Web Programming</a> &nbsp; / &nbsp; <a href="index.html">Week 6</a> &nbsp; / &nbsp; Task 5</div><a class="back" href="index.html">Back</a></div>
+<header class="hero"><h1>Task 5</h1><p>Pokédex (PokéAPI): Look up Pokémon by name or number.</p></header>
+<main><p class="section-label">Pokédex (PokéAPI)</p><div class="panel">
+<p>Enter a Pokémon name or Pokédex number.</p>
+<label for="pokemon">Pokémon</label> <input id="pokemon" value="pikachu">
+<button id="load">Search</button>
+<div id="result" class="result">Pokémon details will appear here.</div>
+</div></main>
+<footer>Created by Pandey Aayush | Student ID: 202537201</footer>
+<script>
+async function fetchJson(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Request failed (HTTP " + response.status + ")");
+  return response.json();
+}
+function showError(id, error) { document.getElementById(id).textContent = "Could not load data. Check your internet connection and try again. " + error.message; }
+
+document.getElementById("load").addEventListener("click", async () => {
+  const query = document.getElementById("pokemon").value.trim().toLowerCase();
+  const out = document.getElementById("result"); out.textContent = "Searching…";
+  if (!query) { out.textContent = "Please enter a Pokémon name or number."; return; }
+  try { const p = await fetchJson("https://pokeapi.co/api/v2/pokemon/" + encodeURIComponent(query)); out.replaceChildren();
+    if (p.sprites.front_default) { const img = document.createElement("img"); img.src = p.sprites.front_default; img.alt = p.name; out.append(img); }
+    const name = document.createElement("h3"); name.textContent = "#" + p.id + " " + p.name;
+    const types = document.createElement("p"); types.textContent = "Type: " + p.types.map(t => t.type.name).join(", ");
+    const stats = document.createElement("p"); stats.textContent = "Height: " + p.height / 10 + " m · Weight: " + p.weight / 10 + " kg";
+    out.append(name, types, stats);
+  } catch (e) { showError("result", e); }
+});
+
+</script>
+</body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 6 Task 6 | Country Table</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="crumbbar"><div><a href="../index.html">Web Programming</a> &nbsp; / &nbsp; <a href="index.html">Week 6</a> &nbsp; / &nbsp; Task 6</div><a class="back" href="index.html">Back</a></div>
+<header class="hero"><h1>Task 6</h1><p>Country Table: Fetch country names, regions, and populations.</p></header>
+<main><p class="section-label">Country Table</p><div class="panel">
+<p>Load a country table from the REST Countries API.</p>
+<button id="load">Load countries</button>
+<div id="result" class="result">Country data will appear here.</div>
+</div></main>
+<footer>Created by Pandey Aayush | Student ID: 202537201</footer>
+<script>
+async function fetchJson(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Request failed (HTTP " + response.status + ")");
+  return response.json();
+}
+function showError(id, error) { document.getElementById(id).textContent = "Could not load data. Check your internet connection and try again. " + error.message; }
+
+document.getElementById("load").addEventListener("click", async () => {
+  const out = document.getElementById("result"); out.textContent = "Loading countries…";
+  try { const countries = await fetchJson("https://restcountries.com/v3.1/all?fields=name,region,population,cca3");
+    countries.sort((a,b) => a.name.common.localeCompare(b.name.common));
+    const wrap = document.createElement("div"); wrap.className = "table-wrap";
+    const table = document.createElement("table");
+    const thead = document.createElement("thead"); const hr = document.createElement("tr");
+    ["Country", "Region", "Population"].forEach(label => { const th = document.createElement("th"); th.textContent = label; hr.append(th); });
+    thead.append(hr); table.append(thead);
+    const tbody = document.createElement("tbody");
+    countries.slice(0, 25).forEach(country => { const tr = document.createElement("tr");
+      [country.name.common, country.region || "—", Number(country.population || 0).toLocaleString()].forEach(value => { const td = document.createElement("td"); td.textContent = value; tr.append(td); });
+      tbody.append(tr);
+    });
+    table.append(tbody); wrap.append(table); out.replaceChildren(wrap);
+  } catch (e) { showError("result", e); }
+});
+
+</script>
+</body></html>

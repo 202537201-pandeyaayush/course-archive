@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 6 Task 4 | Random User Profiles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="crumbbar"><div><a href="../index.html">Web Programming</a> &nbsp; / &nbsp; <a href="index.html">Week 6</a> &nbsp; / &nbsp; Task 4</div><a class="back" href="index.html">Back</a></div>
+<header class="hero"><h1>Task 4</h1><p>Random User Profiles: Retrieve a random user profile.</p></header>
+<main><p class="section-label">Random User Profiles</p><div class="panel">
+<p>Generate a fictional sample profile, including a portrait, name, email, and location.</p>
+<button id="load">Generate profile</button>
+<div id="result" class="result">The profile will appear here.</div>
+</div></main>
+<footer>Created by Pandey Aayush | Student ID: 202537201</footer>
+<script>
+async function fetchJson(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Request failed (HTTP " + response.status + ")");
+  return response.json();
+}
+function showError(id, error) { document.getElementById(id).textContent = "Could not load data. Check your internet connection and try again. " + error.message; }
+
+document.getElementById("load").addEventListener("click", async () => {
+  const out = document.getElementById("result"); out.textContent = "Loading profile…";
+  try { const data = await fetchJson("https://randomuser.me/api/"); const user = data.results[0]; out.replaceChildren();
+    const img = document.createElement("img"); img.src = user.picture.large; img.alt = "Profile portrait";
+    const name = document.createElement("h3"); name.textContent = user.name.first + " " + user.name.last;
+    const email = document.createElement("p"); email.textContent = user.email;
+    const location = document.createElement("p"); location.textContent = user.location.city + ", " + user.location.country;
+    out.append(img, name, email, location);
+  } catch (e) { showError("result", e); }
+});
+
+</script>
+</body></html>
