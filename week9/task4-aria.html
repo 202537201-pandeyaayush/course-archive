@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 9 Task 04 | ARIA Attributes</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="bar" aria-label="Main navigation">
+<a class="brand" href="../index.html">Web Programming</a>
+<a class="back" href="../index.html">Back to Week 9</a>
+</nav>
+<header class="hero">
+<p class="eyebrow">WEEK 09 / TASK 04</p>
+<h1>ARIA Attributes.</h1>
+<p>Add meaning only when needed</p>
+</header>
+<main id="main-content">
+<p><a href="../index.html">← All Week 9 tasks</a></p>
+<section class="panel">
+<span class="tag">Task 04 of 06</span>
+
+<h2>First rule: semantic HTML before ARIA</h2>
+<p>ARIA supplements native HTML; it should not replace an appropriate native element.</p>
+<pre><code>&lt;nav aria-label="Main navigation"&gt;
+  ...
+&lt;/nav&gt;
+
+&lt;button type="button"
+        aria-expanded="false"
+        aria-controls="details"
+        id="toggle-details"&gt;
+  Show details
+&lt;/button&gt;
+&lt;section id="details" hidden&gt;
+  Additional information.
+&lt;/section&gt;
+
+&lt;span aria-hidden="true"&gt;★&lt;/span&gt;
+&lt;span&gt;Rated 4.8 out of 5&lt;/span&gt;</code></pre>
+<button type="button" id="toggle-details" aria-expanded="false" aria-controls="details">Show details</button>
+<section id="details" class="panel" hidden><p>Expanded content. The button's visible state and aria-expanded value are updated together.</p></section>
+<script>
+const toggle = document.getElementById('toggle-details');
+const details = document.getElementById('details');
+toggle.addEventListener('click', () => {
+  const expanded = toggle.getAttribute('aria-expanded') === 'true';
+  toggle.setAttribute('aria-expanded', String(!expanded));
+  details.hidden = expanded;
+  toggle.textContent = expanded ? 'Show details' : 'Hide details';
+});
+</script>
+<ul><li><code>aria-label</code> provides an accessible name when visible text is not available.</li><li><code>aria-hidden="true"</code> hides redundant/decorative content from the accessibility tree, not from the screen.</li><li><code>aria-expanded</code> communicates a disclosure widget’s open/closed state.</li></ul>
+
+</section>
+<p><a class="button" href="../index.html">Back to Week 9 menu</a></p>
+</main>
+<footer>Created by Pandey Aayush | Student ID: 202537201</footer>
+</body>
+</html>
