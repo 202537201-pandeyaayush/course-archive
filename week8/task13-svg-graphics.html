@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 8 Task 13 | SVG Graphics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2454b8;--ink:#17233f;--muted:#596781;--line:#d8def2;--paper:#f1f3ff}
+*{box-sizing:border-box}body{margin:0;font-family:"Bricolage Grotesque",sans-serif;color:var(--ink);background:var(--paper)}
+.bar{min-height:58px;padding:0 max(24px,calc((100% - 900px)/2));display:flex;align-items:center;justify-content:space-between;background:#14213d}
+.bar a{color:white;text-decoration:none;font-weight:700}.back{color:white;background:transparent;border:1px solid #71809f;border-radius:999px;padding:8px 16px;cursor:pointer;font:inherit}
+.hero{padding:48px 24px 42px;color:white;background:linear-gradient(115deg,#2454b8,#0786ad)}.hero-inner,main{max-width:900px;margin:auto}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.12em}h1{margin:10px 0;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1}.hero p{max-width:680px;line-height:1.6}
+main{padding:30px 24px 60px}.crumb{display:inline-block;margin:0 0 24px;color:#2454b8;text-decoration:none;font-weight:700}
+.card{background:white;border:1px solid var(--line);border-radius:17px;padding:25px;margin-bottom:18px;box-shadow:0 8px 24px #263b7110}h2{margin:0 0 12px;font-size:1.35rem}p{line-height:1.65}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.demo{border:1px solid var(--line);border-radius:13px;padding:16px;background:#f9faff}.demo h3{margin:0 0 10px;font-size:1rem}.art{min-height:150px;display:grid;place-items:center;background:white;border-radius:10px}svg{max-width:100%;height:auto}
+pre{overflow:auto;padding:17px;border-radius:12px;background:#17233f;color:#f2f5ff;line-height:1.6}table{width:100%;border-collapse:collapse}th,td{padding:12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f3f5ff}
+.tip{border-left:4px solid #ffdf68;padding:10px 15px;background:#fff9df;border-radius:0 10px 10px 0}footer{text-align:center;color:var(--muted);padding:20px;font-size:.9rem}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:19px}table{font-size:.9rem}}
+</style>
+</head>
+<body>
+<nav class="bar"><a href="../index.html">Web Programming</a><button class="back" onclick="history.back()">Back</button></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 08 / TASK 13</div><h1>SVG<br>Graphics</h1><p>Learn how Scalable Vector Graphics create crisp shapes, icons, illustrations and diagrams directly in HTML.</p></div></header>
+<main>
+<a class="crumb" href="index.html">← Back to all Week 8 tasks</a>
+<section class="card"><h2>What is SVG?</h2><p>SVG stands for <strong>Scalable Vector Graphics</strong>. It is an XML-based image format that describes graphics using shapes, paths, lines, colors and text. Unlike pixel-based images, SVG graphics can be enlarged or reduced without becoming blurry.</p><p class="tip"><strong>Key idea:</strong> SVG is useful for logos, icons, diagrams, charts and illustrations that need to stay sharp at different screen sizes.</p></section>
+<section class="card"><h2>Common SVG shapes</h2><div class="grid">
+<div class="demo"><h3>1. Rectangle and circle</h3><div class="art"><svg viewBox="0 0 260 130" role="img" aria-labelledby="s1"><title id="s1">Blue rectangle and yellow circle</title><rect x="15" y="25" width="105" height="78" rx="10" fill="#2454b8"/><circle cx="190" cy="64" r="39" fill="#ffdf68" stroke="#17233f" stroke-width="3"/></svg></div></div>
+<div class="demo"><h3>2. Ellipse and line</h3><div class="art"><svg viewBox="0 0 260 130" role="img" aria-labelledby="s2"><title id="s2">Teal ellipse and diagonal line</title><ellipse cx="82" cy="64" rx="62" ry="34" fill="#17a6a0"/><line x1="155" y1="100" x2="235" y2="25" stroke="#17233f" stroke-width="7" stroke-linecap="round"/></svg></div></div>
+<div class="demo"><h3>3. Polygon</h3><div class="art"><svg viewBox="0 0 260 130" role="img" aria-labelledby="s3"><title id="s3">Purple five-sided polygon</title><polygon points="130,12 238,52 197,116 63,116 22,52" fill="#8b70d6" stroke="#49338e" stroke-width="4"/></svg></div></div>
+<div class="demo"><h3>4. SVG text</h3><div class="art"><svg viewBox="0 0 260 130" role="img" aria-labelledby="s4"><title id="s4">Hello SVG text</title><text x="130" y="75" text-anchor="middle" font-size="31" font-weight="700" fill="#2454b8">Hello SVG!</text></svg></div></div>
+</div></section>
+<section class="card"><h2>Example SVG code</h2><p>This example draws a circle. The <code>viewBox</code> defines the coordinate system, <code>fill</code> sets the inside color and <code>stroke</code> sets the outline.</p><pre><code>&lt;svg viewBox="0 0 120 120" role="img"
+     aria-label="Blue circle"&gt;
+  &lt;circle cx="60" cy="60" r="42"
+          fill="#2454b8"
+          stroke="#17233f"
+          stroke-width="4" /&gt;
+&lt;/svg&gt;</code></pre></section>
+<section class="card"><h2>SVG compared with PNG and JPG</h2><table><thead><tr><th>Format</th><th>Type</th><th>Best use</th><th>Scaling</th></tr></thead><tbody>
+<tr><td><strong>SVG</strong></td><td>Vector</td><td>Logos, icons, diagrams and simple illustrations</td><td>Stays sharp at any size</td></tr>
+<tr><td><strong>PNG</strong></td><td>Raster</td><td>Screenshots and images needing transparency</td><td>Can become pixelated when enlarged</td></tr>
+<tr><td><strong>JPG</strong></td><td>Raster</td><td>Photographs and complex images</td><td>Can become pixelated when enlarged</td></tr>
+</tbody></table></section>
+<section class="card"><h2>Why use SVG?</h2><ul><li>Resolution-independent and sharp on high-density displays.</li><li>Shapes and colors can be styled with attributes or CSS.</li><li>SVG can be embedded directly in an HTML document.</li><li>Accessible names can be added with <code>title</code> and ARIA labels.</li></ul><p class="muted">For photographs, JPG, PNG, WebP or AVIF are usually more suitable. SVG is most useful for graphics made from shapes and paths.</p></section>
+</main><footer>Web Programming · Week 8 · Task 13</footer>
+</body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 8 Task 12 | JavaScript Form Validation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2454b8;--ink:#17233f;--muted:#596781;--line:#d8def2;--paper:#f1f3ff}
+*{box-sizing:border-box}body{margin:0;font-family:"Bricolage Grotesque",sans-serif;color:var(--ink);background:var(--paper)}
+.bar{min-height:58px;padding:0 max(24px,calc((100% - 900px)/2));display:flex;align-items:center;justify-content:space-between;background:#14213d}
+.bar a{color:white;text-decoration:none;font-weight:700}.back{color:white;background:transparent;border:1px solid #71809f;border-radius:999px;padding:8px 16px;cursor:pointer;font:inherit}
+.hero{padding:48px 24px 42px;color:white;background:linear-gradient(115deg,#2454b8,#0786ad)}.hero-inner,main{max-width:900px;margin:auto}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.12em}h1{margin:10px 0;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1}.hero p{max-width:680px;line-height:1.6}
+main{padding:30px 24px 60px}.crumb{display:inline-block;margin:0 0 24px;color:#2454b8;text-decoration:none;font-weight:700}
+.card{background:white;border:1px solid var(--line);border-radius:17px;padding:25px;margin-bottom:18px;box-shadow:0 8px 24px #263b7110}h2{margin:0 0 12px;font-size:1.35rem}p{line-height:1.65}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{display:block;font-weight:700;margin:0 0 7px}input{width:100%;padding:12px 13px;border:1.5px solid #cbd3e8;border-radius:10px;font:inherit;outline:none}input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2454b81a}input.invalid{border-color:#c73545}
+.error{min-height:20px;color:#b42332;font-size:.88rem;margin:5px 0 0}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+button.primary,button.secondary{border-radius:999px;padding:12px 21px;font:inherit;cursor:pointer}button.primary{border:0;background:#2454b8;color:white;font-weight:700}button.secondary{border:1px solid #b8c3dc;background:white;color:var(--ink)}
+.result{display:none;margin-top:18px;padding:13px 16px;border-radius:11px;font-weight:700}.success{display:block;color:#17643c;background:#e8f7ee;border:1px solid #a9dfbd}.failure{display:block;color:#9c2431;background:#fff0f1;border:1px solid #f0b8be}
+.tip{border-left:4px solid #ffdf68;padding:10px 15px;background:#fff9df;border-radius:0 10px 10px 0}pre{overflow:auto;padding:17px;border-radius:12px;background:#17233f;color:#f2f5ff;line-height:1.6}footer{text-align:center;color:var(--muted);padding:20px;font-size:.9rem}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:19px}}
+</style>
+</head>
+<body>
+<nav class="bar"><a href="../index.html">Web Programming</a><button class="back" onclick="history.back()">Back</button></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 08 / TASK 12</div><h1>JavaScript Form<br>Validation</h1><p>Validate user input with JavaScript, show helpful error messages, and stop invalid form submissions.</p></div></header>
+<main>
+<a class="crumb" href="index.html">← Back to all Week 8 tasks</a>
+<section class="card"><h2>What is JavaScript form validation?</h2><p>Form validation checks whether information entered by a user follows the rules required by an application. HTML attributes such as <code>required</code> are useful, but JavaScript lets us create custom rules and display our own feedback.</p><p class="tip"><strong>Try it:</strong> Submit the form with empty fields, an invalid email, a short password, or passwords that do not match. Correct the values and submit again.</p></section>
+<section class="card"><h2>Interactive registration form</h2><p class="muted">Front-end demonstration only. It validates fields in your browser and does not send or store your information.</p>
+<form id="registerForm" novalidate>
+<div class="grid">
+<div><label for="fullName">Full name</label><input id="fullName" autocomplete="name" placeholder="e.g. Alex Kim"><p class="error" id="fullNameError"></p></div>
+<div><label for="email">Email address</label><input id="email" autocomplete="email" placeholder="name@example.com"><p class="error" id="emailError"></p></div>
+<div><label for="password">Password</label><input id="password" type="password" autocomplete="new-password" placeholder="At least 8 characters"><p class="error" id="passwordError"></p></div>
+<div><label for="confirmPassword">Confirm password</label><input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Enter password again"><p class="error" id="confirmPasswordError"></p></div>
+</div><div class="actions"><button class="primary" type="submit">Validate form</button><button class="secondary" type="reset">Clear form</button></div><div id="formResult" class="result" role="status" aria-live="polite"></div>
+</form></section>
+<section class="card"><h2>Validation rules</h2><ul><li><strong>Full name:</strong> must not be empty.</li><li><strong>Email:</strong> must match a basic email format.</li><li><strong>Password:</strong> at least 8 characters, including a letter and a number.</li><li><strong>Confirm password:</strong> must match the password.</li></ul></section>
+<section class="card"><h2>How the JavaScript works</h2><pre><code>form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  // Read values, check each rule, and show errors.
+  // Continue only when every field is valid.
+});</code></pre><p class="muted">The <code>submit</code> event listener runs when the user submits the form. <code>preventDefault()</code> stops normal submission while custom checks run.</p></section>
+</main><footer>Web Programming · Week 8 · Task 12</footer>
+<script>
+const form=document.getElementById("registerForm");
+const fields=["fullName","email","password","confirmPassword"];
+function showError(field,message){
+ document.getElementById(field+"Error").textContent=message;
+ document.getElementById(field).classList.toggle("invalid",Boolean(message));
+ document.getElementById(field).setAttribute("aria-invalid",message?"true":"false");
+}
+form.addEventListener("submit",function(event){
+ event.preventDefault();
+ const v={
+  fullName:document.getElementById("fullName").value.trim(),
+  email:document.getElementById("email").value.trim(),
+  password:document.getElementById("password").value,
+  confirmPassword:document.getElementById("confirmPassword").value
+ };
+ const errors={
+  fullName:v.fullName?"":"Please enter your name.",
+  email:/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)?"":"Enter a valid email address.",
+  password:/^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(v.password)?"":"Use at least 8 characters with a letter and a number.",
+  confirmPassword:v.confirmPassword&&v.confirmPassword===v.password?"":"The passwords do not match."
+ };
+ let valid=true;fields.forEach(f=>{showError(f,errors[f]);if(errors[f])valid=false;});
+ const result=document.getElementById("formResult");
+ result.className="result "+(valid?"success":"failure");
+ result.textContent=valid?"Success! All fields passed JavaScript validation. This demo does not send your data.":"Please fix the highlighted fields and try again.";
+ if(!valid)document.getElementById(fields.find(f=>errors[f])).focus();
+});
+form.addEventListener("reset",function(){
+ fields.forEach(f=>showError(f,""));
+ const result=document.getElementById("formResult");result.className="result";result.textContent="";
+});
+</script>
+</body></html>
