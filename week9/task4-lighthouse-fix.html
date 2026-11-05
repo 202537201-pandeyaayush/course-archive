@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Review common accessibility findings and apply practical HTML and CSS corrections.">
+<title>Week 9 · Task 04 | Lighthouse Fix</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="bar"><a href="index.html">← Week 9</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 / TASK 04</div><h1>Lighthouse Fix.</h1><p>Review common accessibility findings and apply practical HTML and CSS corrections.</p></div></header>
+<main class="wrap">
+<div class="back-row"><a href="index.html">← Back to all Week 9 tasks</a></div>
+<section class="panel"><h2>Sample Lighthouse findings</h2><p>Lighthouse can identify several automated accessibility issues. It cannot prove that a page is fully accessible, so combine the report with manual keyboard and screen-reader checks.</p><table><thead><tr><th>Finding</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>Buttons do not have accessible names</td><td>Icon-only button with no label</td><td>Add visible text or aria-label</td></tr><tr><td>Form elements do not have labels</td><td>Placeholder used instead of label</td><td>Use label and matching id</td></tr><tr><td>Links have no discernible name</td><td>Empty link or image without alt</td><td>Give the link descriptive text</td></tr><tr><td>Background and foreground colors lack contrast</td><td>Text color too close to background</td><td>Choose a contrast-compliant pair</td></tr></tbody></table></section>
+<section class="panel"><h2>Fix a sample form</h2><div class="demo-box"><span class="pill">Before: unlabeled field</span><input placeholder="Email" aria-label="Example of a field before the fix"><p class="lead">The placeholder is not a substitute for a persistent visible label.</p></div><div class="demo-box"><span class="pill">After: associated label</span><label for="fixedEmail">Email address</label><input id="fixedEmail" type="email" autocomplete="email" placeholder="you@example.com"><p class="lead">The label remains visible when the user enters a value.</p></div><h3>Contrast and focus CSS</h3><pre>body { color: #17213b; background: #fff; }
+:focus-visible {
+  outline: 3px solid #315cff;
+  outline-offset: 3px;
+}</pre></section>
+<section class="panel"><h2>Retest workflow</h2><ol class="checklist"><li>Open the deployed page in Chrome.</li><li>Run Lighthouse from DevTools → Lighthouse.</li><li>Record the URL, date, device mode and score.</li><li>Fix the listed issues one by one.</li><li>Run the audit again and compare results.</li><li>Manually test keyboard navigation and labels.</li></ol><div class="callout good">A successful fix is one that improves the real user experience, not just the score.</div></section>
+<div class="back-row"><a href="index.html">← Back to Week 9 task list</a></div>
+</main>
+<footer>Created by Pandey Aayush · Student ID: 202537201</footer>
+<script>
+const runDefer=document.getElementById('runDefer');
+if(runDefer) runDefer.addEventListener('click',()=>{const log=document.getElementById('deferLog');log.innerHTML='';['HTML parsing begins','Deferred script downloads while parsing continues','HTML parsing completes','Deferred script executes','DOMContentLoaded event fires'].forEach(x=>{const li=document.createElement('li');li.textContent=x;log.appendChild(li);});});
+const runDom=document.getElementById('runDom');
+if(runDom) runDom.addEventListener('click',()=>{const out=document.getElementById('domOutput'),list=document.getElementById('generatedList');list.innerHTML='';const start=performance.now();const frag=document.createDocumentFragment();for(let i=1;i<=1000;i++){const p=document.createElement('p');p.textContent='Generated test item '+i;frag.appendChild(p);}list.appendChild(frag);const elapsed=performance.now()-start;out.textContent='Created and inserted 1,000 items in '+elapsed.toFixed(2)+' ms in this browser run.';});
+const clearDom=document.getElementById('clearDom');
+if(clearDom) clearDom.addEventListener('click',()=>{document.getElementById('generatedList').innerHTML='';document.getElementById('domOutput').textContent='Results cleared.';});
+</script>
+</body></html>
