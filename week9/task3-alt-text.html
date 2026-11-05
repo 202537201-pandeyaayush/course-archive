@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 9 Task 03 | Image Alt Text</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="bar" aria-label="Main navigation">
+<a class="brand" href="../index.html">Web Programming</a>
+<a class="back" href="../index.html">Back to Week 9</a>
+</nav>
+<header class="hero">
+<p class="eyebrow">WEEK 09 / TASK 03</p>
+<h1>Image Alt Text.</h1>
+<p>Describe purpose, not decoration</p>
+</header>
+<main id="main-content">
+<p><a href="../index.html">← All Week 9 tasks</a></p>
+<section class="panel">
+<span class="tag">Task 03 of 06</span>
+
+<h2>Choose alt text by purpose</h2>
+<ul>
+<li><strong>Informative image:</strong> describe the useful information and purpose.</li>
+<li><strong>Decorative image:</strong> use <code>alt=""</code> so screen readers can skip it.</li>
+<li><strong>Functional image inside a button:</strong> describe the action, such as “Search”.</li>
+</ul>
+<pre><code>&lt;!-- Informative --&gt;
+&lt;img src="enrollment-chart.png"
+     alt="Enrollment rose 40% from 2024 to 2026"&gt;
+
+&lt;!-- Decorative --&gt;
+&lt;img src="divider.svg" alt=""&gt;
+
+&lt;!-- Image used as a button's label --&gt;
+&lt;button type="button"&gt;
+  &lt;img src="search.svg" alt=""&gt;
+  Search
+&lt;/button&gt;</code></pre>
+<p class="note">Avoid alt text like “image of…” or “photo of…”. If an image conveys no information and has no function, use an empty alt attribute rather than omitting alt entirely.</p>
+<h2>Practice</h2>
+<p>Review every <code>&lt;img&gt;</code> on your project. Add meaningful alt text, or <code>alt=""</code> for purely decorative images.</p>
+
+</section>
+<p><a class="button" href="../index.html">Back to Week 9 menu</a></p>
+</main>
+<footer>Created by Pandey Aayush | Student ID: 202537201</footer>
+</body>
+</html>
