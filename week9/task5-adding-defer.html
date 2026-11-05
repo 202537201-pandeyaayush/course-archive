@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 9 | Adding Defer</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="bar"><a class="brand" href="../index.html">Web Programming</a><a class="back" href="index.html">Back to Week 9</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 / TASK 05</div><h1>Adding Defer</h1><p>Use the defer attribute to load external JavaScript without blocking HTML parsing.</p></div></header>
+<main class="wrap"><div class="panel"><div class="kicker">Task 05</div><h2>Adding Defer</h2><p>By default, a classic external script can pause HTML parsing while it downloads and executes. The <code>defer</code> attribute downloads the script in parallel and runs it after HTML parsing is complete.</p>
+<h3>Compare the script tags</h3>
+<pre>&lt;!-- May block HTML parsing --&gt;
+&lt;script src="app.js"&gt;&lt;/script&gt;
+
+&lt;!-- Downloads in parallel; runs after parsing --&gt;
+&lt;script src="app.js" defer&gt;&lt;/script&gt;</pre>
+<div class="demo"><p><strong>Remember:</strong> deferred classic scripts execute in document order and run before <code>DOMContentLoaded</code>.</p><button onclick="document.getElementById('deferResult').textContent='The page is interactive. Deferred scripts run after the document has been parsed.'">Test message</button><p id="deferResult" class="result" aria-live="polite"></p></div>
+<p>Use <code>defer</code> for external classic scripts that depend on the parsed document. Module scripts are deferred by default.</p></div><a class="btn" href="index.html">← Back to Week 9</a></main>
+<footer>Created by Pandey Aayush · Student ID: 202537201</footer>
+</body></html>

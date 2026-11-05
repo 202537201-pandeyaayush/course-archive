@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 9 | Div Button</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="bar"><a class="brand" href="../index.html">Web Programming</a><a class="back" href="index.html">Back to Week 9</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 / TASK 03</div><h1>Div Button</h1><p>Replace clickable div elements with semantic buttons.</p></div></header>
+<main class="wrap"><div class="panel"><div class="kicker">Task 03</div><h2>Div Button</h2><p>A <code>div</code> is a generic container. It does not automatically behave like a button for keyboard and assistive-technology users. Use a native <code>button</code> for actions.</p>
+<div class="demo"><p><strong>Not recommended:</strong></p><div onclick="document.getElementById('bad').textContent='The div was clicked.'" style="display:inline-block;background:#aaa;padding:10px;border-radius:8px;cursor:pointer">Click div</div><p id="bad" aria-live="polite"></p><p><strong>Recommended:</strong></p><button onclick="document.getElementById('good').textContent='The semantic button was activated.'">Click button</button><p id="good" class="result" aria-live="polite"></p></div>
+<pre>&lt;button type="button" onclick="saveChanges()"&gt;Save changes&lt;/button&gt;</pre>
+<p>Native buttons support keyboard activation and expose their role to assistive technologies automatically.</p></div><a class="btn" href="index.html">← Back to Week 9</a></main>
+<footer>Created by Pandey Aayush · Student ID: 202537201</footer>
+</body></html>

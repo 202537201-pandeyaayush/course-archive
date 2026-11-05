@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 9 | Performance Test Page</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="bar"><a class="brand" href="../index.html">Web Programming</a><a class="back" href="index.html">Back to Week 9</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 / TASK 08</div><h1>Performance Test Page</h1><p>Use a small test page to observe loading and interaction performance.</p></div></header>
+<main class="wrap"><div class="panel"><div class="kicker">Task 08</div><h2>Performance Test Page</h2><p>This page contains a simple interaction you can test. Use browser DevTools or Lighthouse to measure it under consistent conditions.</p>
+<div class="demo"><h3>Interaction test</h3><button id="countBtn" type="button">Click count: 0</button><p id="countInfo" aria-live="polite">Activate the button to test interaction response.</p></div>
+<h3>Testing procedure</h3><ol><li>Open this page in Chrome.</li><li>Open DevTools and select the Performance or Lighthouse panel.</li><li>Run a test under a consistent device and network profile.</li><li>Record LCP, INP (or the available interaction diagnostic), and CLS.</li><li>Make one optimization and run the test again.</li></ol>
+<p class="note">A single local test is not a universal performance score. Repeat tests and compare results under the same conditions.</p>
+<script>let n=0;document.getElementById('countBtn').addEventListener('click',()=>{n++;document.getElementById('countBtn').textContent='Click count: '+n;document.getElementById('countInfo').textContent='Interaction completed '+n+' time(s).';});</script></div><a class="btn" href="index.html">← Back to Week 9</a></main>
+<footer>Created by Pandey Aayush · Student ID: 202537201</footer>
+</body></html>

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 9 | Comparing Image Format</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="bar"><a class="brand" href="../index.html">Web Programming</a><a class="back" href="index.html">Back to Week 9</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 / TASK 06</div><h1>Comparing Image Format</h1><p>Compare common image formats and choose an appropriate format for each use case.</p></div></header>
+<main class="wrap"><div class="panel"><div class="kicker">Task 06</div><h2>Comparing Image Format</h2><p>Image format affects file size, visual quality, transparency, and browser support. The best choice depends on the image and how it will be used.</p>
+<div class="demo"><h3>Format comparison</h3><ul><li><strong>JPEG:</strong> good for photographs; lossy compression; no transparency.</li><li><strong>PNG:</strong> lossless; supports transparency; often larger for photos.</li><li><strong>WebP:</strong> modern format supporting lossy/lossless compression and transparency.</li><li><strong>AVIF:</strong> often very efficient compression; useful for modern web delivery.</li><li><strong>SVG:</strong> vector format ideal for logos and icons.</li></ul></div>
+<label for="scenario">Choose a format for a scalable company logo:</label><br><select id="scenario"><option value="">Select an answer</option><option>JPEG</option><option>PNG</option><option>SVG</option><option>AVIF</option></select> <button onclick="document.getElementById('formatResult').textContent=document.getElementById('scenario').value==='SVG'?'Correct — SVG stays sharp at different sizes.':'Try again. A logo that needs to scale is usually best as a vector.'">Check</button><p id="formatResult" class="result" aria-live="polite"></p></div><a class="btn" href="index.html">← Back to Week 9</a></main>
+<footer>Created by Pandey Aayush · Student ID: 202537201</footer>
+</body></html>
