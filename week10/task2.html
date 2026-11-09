@@ -1,58 +1,189 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 10 | Task 2</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:#f2f0fb;color:#31577f;font-family:"Bricolage Grotesque",Arial,sans-serif}
-.page{width:min(960px,calc(100% - 32px));margin:0 auto;padding-bottom:48px}
-nav{height:58px;background:#172b43;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
-nav a{color:#fff;text-decoration:none;font-weight:700}
-nav .back{border:1px solid #7890aa;border-radius:7px;padding:7px 12px}
-.hero{background:linear-gradient(110deg,#28618e,#438bd0);color:#fff;padding:20px 44px 38px;min-height:155px}
-.tag{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:30px;padding:7px 13px;font-size:12px;font-weight:800;letter-spacing:.7px}
-h1{margin:15px 0 0;font-size:clamp(38px,6vw,48px);line-height:1.05;font-weight:800}
-main{background:#fff;padding:34px 39px 38px;border:1px solid #d8e0ef;border-top:0;border-radius:0 0 18px 18px;box-shadow:0 18px 35px rgba(42,62,100,.06)}
-.intro{margin:0 0 25px;font-size:17px;line-height:1.75;color:#4c6d94}
-.cards{display:grid;gap:13px}
-.card{display:flex;align-items:center;gap:16px;border:1px solid #d6e0f0;background:#fff;border-radius:12px;padding:17px 19px;text-decoration:none;color:#31577f;transition:transform .15s,background .15s}
-.card:hover{transform:translateY(-2px);background:#f8faff}
-.num{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:10px;background:#ffd65a;color:#684b00;font-weight:800}
-.card-copy{flex:1}
-.card-copy strong{display:block;color:#205b8e;font-size:17px}
-.card-copy small{display:block;color:#7187a5;margin-top:4px;font-size:13px}
-.open{font-weight:800;color:#287fbd}
-.repo-card{border:1px solid #d6e0f0;background:#f8faff;border-radius:14px;padding:23px 24px}
-.repo-card h2{margin:0 0 6px;font-size:19px;color:#205b8e}
-.repo-name{margin:0 0 20px;color:#58749a;font-size:16px}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.button{display:inline-block;text-decoration:none;border:1px solid #287fc0;border-radius:9px;padding:13px 19px;font-weight:800;color:#17649f;background:white}
-.button.primary{color:white;background:#287fbd}
-footer{text-align:center;color:#7890b2;font-size:13px;padding:25px 12px 0}
-@media(max-width:600px){.hero{padding:18px 22px 30px}main{padding:27px 20px 30px}.intro{font-size:16px}.card{padding:14px 12px}.open{font-size:13px}.button{width:100%;text-align:center}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 10 | Task 2</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: #e9f5f1;
+      color: #102c2b;
+    }
+
+    nav {
+      background: #102c2b;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .hero {
+      background: #087f70;
+      color: white;
+      padding: 65px 8%;
+    }
+
+    .eyebrow {
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #b9f5df;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      margin: 12px 0;
+      line-height: 1;
+    }
+
+    .hero p {
+      font-size: 17px;
+      max-width: 600px;
+      color: #e0fff4;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 45px auto;
+      padding: 0 22px;
+    }
+
+    .panel {
+      background: #ffffff;
+      border: 1px solid #c6e3d9;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 12px 30px rgba(16, 44, 43, 0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #102c2b;
+      font-size: 28px;
+    }
+
+    .panel p {
+      color: #58716c;
+      line-height: 1.7;
+    }
+
+    .links {
+      display: grid;
+      gap: 14px;
+      margin-top: 25px;
+    }
+
+    .link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 19px 20px;
+      border: 1px solid #c6e3d9;
+      border-radius: 12px;
+      color: #102c2b;
+      text-decoration: none;
+      font-weight: 700;
+      background: #f5fbf8;
+      transition: 0.2s ease;
+    }
+
+    .link:hover {
+      background: #e0f5ec;
+      border-color: #087f70;
+      transform: translateY(-3px);
+    }
+
+    .open {
+      color: #087f70;
+      white-space: nowrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #66827a;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 48px 7%;
+      }
+
+      .panel {
+        padding: 22px;
+      }
+
+      .link {
+        padding: 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="page">
-<nav><a href="../index.html">Web Programming</a><a class="back" href="index.html">Week 10</a></nav>
-<header class="hero"><span class="tag">WEEK 10 · TASK 2</span><h1>Week 10 | Task 2</h1></header>
-<main>
-<p class="intro">This is your Week 10, Task 2 page in the course archive. Use the buttons below to open your own GitHub repository or view this task page on your live course website.</p>
-<section class="repo-card" aria-label="GitHub repository links">
-<h2>My GitHub Repository</h2>
-<p class="repo-name">202537201-pandeyaayush / course-archive</p>
-<div class="actions">
-<a class="button primary" href="https://github.com/202537201-pandeyaayush/course-archive" target="_blank" rel="noopener noreferrer">Open My Repository ↗</a>
-<a class="button" href="https://202537201-pandeyaayush.github.io/course-archive/week10/task2.html" target="_blank" rel="noopener noreferrer">Open My Live Task Page ↗</a>
-</div>
-</section>
-</main>
-<footer>Web Programming · Week 10 · Pandey Aayush · 202537201</footer>
-</div>
+
+  <nav>
+    <a href="../index.html">Web Programming</a>
+    <a href="index.html">Week 10</a>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">WEEK 10 / TASK 02</div>
+    <h1>Task 2</h1>
+    <p>Web Programming coursework by Pandey Aayush.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>My Task Work</h2>
+      <p>Explore my Web Programming coursework and submitted projects.</p>
+
+      <div class="links">
+        <a
+          class="link"
+          href="https://202537201-pandeyaayush.github.io/course-archive/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Open my live task work</span>
+          <span class="open">Open ↗</span>
+        </a>
+
+        <a
+          class="link"
+          href="https://github.com/202537201-pandeyaayush/course-archive"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>View my GitHub repository</span>
+          <span class="open">Open ↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Pandey Aayush · Web Programming</footer>
+
 </body>
 </html>
