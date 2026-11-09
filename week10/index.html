@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 10 | Course Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#f2f0fb;color:#31577f;font-family:"Bricolage Grotesque",Arial,sans-serif}
+.page{width:min(960px,calc(100% - 32px));margin:0 auto;padding-bottom:48px}
+nav{height:58px;background:#172b43;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+nav a{color:#fff;text-decoration:none;font-weight:700}
+nav .back{border:1px solid #7890aa;border-radius:7px;padding:7px 12px}
+.hero{background:linear-gradient(110deg,#28618e,#438bd0);color:#fff;padding:20px 44px 38px;min-height:155px}
+.tag{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:30px;padding:7px 13px;font-size:12px;font-weight:800;letter-spacing:.7px}
+h1{margin:15px 0 0;font-size:clamp(38px,6vw,48px);line-height:1.05;font-weight:800}
+main{background:#fff;padding:34px 39px 38px;border:1px solid #d8e0ef;border-top:0;border-radius:0 0 18px 18px;box-shadow:0 18px 35px rgba(42,62,100,.06)}
+.intro{margin:0 0 25px;font-size:17px;line-height:1.75;color:#4c6d94}
+.cards{display:grid;gap:13px}
+.card{display:flex;align-items:center;gap:16px;border:1px solid #d6e0f0;background:#fff;border-radius:12px;padding:17px 19px;text-decoration:none;color:#31577f;transition:transform .15s,background .15s}
+.card:hover{transform:translateY(-2px);background:#f8faff}
+.num{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:10px;background:#ffd65a;color:#684b00;font-weight:800}
+.card-copy{flex:1}
+.card-copy strong{display:block;color:#205b8e;font-size:17px}
+.card-copy small{display:block;color:#7187a5;margin-top:4px;font-size:13px}
+.open{font-weight:800;color:#287fbd}
+.repo-card{border:1px solid #d6e0f0;background:#f8faff;border-radius:14px;padding:23px 24px}
+.repo-card h2{margin:0 0 6px;font-size:19px;color:#205b8e}
+.repo-name{margin:0 0 20px;color:#58749a;font-size:16px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.button{display:inline-block;text-decoration:none;border:1px solid #287fc0;border-radius:9px;padding:13px 19px;font-weight:800;color:#17649f;background:white}
+.button.primary{color:white;background:#287fbd}
+footer{text-align:center;color:#7890b2;font-size:13px;padding:25px 12px 0}
+@media(max-width:600px){.hero{padding:18px 22px 30px}main{padding:27px 20px 30px}.intro{font-size:16px}.card{padding:14px 12px}.open{font-size:13px}.button{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+<div class="page">
+<nav><a href="../index.html">Web Programming</a><a class="back" href="index.html">Week 10</a></nav>
+<header class="hero"><span class="tag">WEEK 10 · COURSE WORK</span><h1>Week 10 | Course Archive</h1></header>
+<main>
+<p class="intro">Week 10 course work. Choose a task below to open its separate page.</p>
+<section class="cards" aria-label="Week 10 tasks">
+<a class="card" href="task1.html"><span class="num">01</span><span class="card-copy"><strong>Task 1</strong><small>Assignment page and project links</small></span><span class="open">Open ↗</span></a>
+<a class="card" href="task2.html"><span class="num">02</span><span class="card-copy"><strong>Task 2</strong><small>Assignment page and project links</small></span><span class="open">Open ↗</span></a>
+</section>
+</main>
+<footer>Web Programming · Week 10 · Pandey Aayush · 202537201</footer>
+</div>
+</body>
+</html>
