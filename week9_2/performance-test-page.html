@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore a practice performance report, Core Web Vitals context, and image-loading techniques through accessible interactive tabs.">
+<title>Week 9 Part 2 Task 02 | Performance Test Page</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topbar"><a href="index.html">← Week 9 · Part 2</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 2 · TASK 02</div><h1>Performance Test<br>Page.</h1><p>Explore a practice performance report, Core Web Vitals context, and image-loading techniques through accessible interactive tabs.</p></div></header>
+<main class="wrap">
+<section class="panel"><span class="tag">TASK 02</span><p><b>Student:</b> Pandey Aayush &nbsp;·&nbsp; <b>Student ID:</b> 202537201</p><p class="muted">Project: Student Budget Tracker · Web Programming</p></section>
+
+<section class="panel"><h2>1. Purpose of the test page</h2><p>This page demonstrates how performance metrics, image loading options, and JavaScript loading choices relate to the Student Budget Tracker. The score values in the practice overview below are the separate example values in the supplied exercise page; they are not the official deployed-site Lighthouse scores shown in Task 1.</p></section>
+<section class="panel"><h2>2. Performance test results · Practice example</h2><div class="tabs" role="tablist" aria-label="Performance test sections"><button class="tab" id="tab-overview" role="tab" aria-selected="true" aria-controls="panel-overview" type="button">Overview</button><button class="tab" id="tab-metrics" role="tab" aria-selected="false" aria-controls="panel-metrics" type="button">Metrics</button><button class="tab" id="tab-optimizations" role="tab" aria-selected="false" aria-controls="panel-optimizations" type="button">Optimizations</button><button class="tab" id="tab-conclusion" role="tab" aria-selected="false" aria-controls="panel-conclusion" type="button">Conclusion</button></div>
+<section class="tab-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0"><div class="score-grid"><div class="score-card"><span class="muted">Practice original score</span><strong>74</strong><span class="muted">Example only</span></div><div class="score-card"><span class="muted">Practice optimized score</span><strong>92</strong><span class="muted">Example only</span></div></div><p><b>Example difference:</b> +18 points. These values are retained from the provided performance test exercise, not the official site result.</p></section>
+<section class="tab-panel" id="panel-metrics" role="tabpanel" aria-labelledby="tab-metrics" tabindex="0" hidden><h3>Worst metric in the practice example</h3><div class="metric"><span>Cumulative Layout Shift (CLS)</span><b>0.279</b></div><p>The supplied exercise identifies unsized images as a likely cause: the browser does not reserve image space before download, so nearby page elements may move when images appear.</p><p class="muted">The after-optimization CLS value was not supplied in the source exercise and is not invented here.</p></section>
+<section class="tab-panel" id="panel-optimizations" role="tabpanel" aria-labelledby="tab-optimizations" tabindex="0" hidden><h3>Optimization checklist</h3><ul><li>Add width and height attributes to reserve image space.</li><li>Use loading="lazy" for below-the-fold images.</li><li>Use decoding="async" where appropriate.</li><li>Use fetchpriority="high" for the main above-the-fold image only when it is the likely LCP resource.</li><li>Use defer for scripts that do not need to execute before parsing completes.</li></ul></section>
+<section class="tab-panel" id="panel-conclusion" role="tabpanel" aria-labelledby="tab-conclusion" tabindex="0" hidden><h3>Conclusion</h3><p>The practice example illustrates how dimensions, lazy loading, image decoding and deferred JavaScript can influence page loading. The actual Student Budget Tracker report is documented separately with the supplied 100/100 official scores and 87 local test.</p></section></section>
+<section class="panel"><h2>3. Image loading demonstration</h2><p>The project preview below is given explicit dimensions to reserve layout space. It is also marked for asynchronous decoding. This first image is treated as an above-the-fold image, so it is not lazy-loaded.</p><div class="demo"><img src="assets/budget-tracker-preview.webp" width="960" height="640" fetchpriority="high" decoding="async" alt="Student Budget Tracker interface preview showing balance, income, expenses and the monthly budget panel."></div><p class="muted">The same asset is used in the image-format comparison task.</p></section>
+<section class="panel"><h2>4. Before and after image markup</h2><div class="demo-grid"><div class="demo"><h3>Before</h3><div class="code">&lt;img src="large-preview.jpg" alt="Budget tracker"&gt;</div><p class="muted">No explicit dimensions to reserve space. The file format and file size are not selected responsively.</p></div><div class="demo"><h3>After</h3><div class="code">&lt;img src="budget-tracker-preview.webp"
+ width="960" height="640"
+ decoding="async"
+ alt="Student Budget Tracker interface preview"&gt;</div><p class="muted">Dimensions reserve space and WebP can reduce transfer size where supported.</p></div></div></section>
+
+<section class="panel"><a class="button" href="index.html">← Back to Week 9 Part 2 tasks</a></section>
+</main>
+<footer>Web Programming · Pandey Aayush · 202537201</footer>
+<script>
+(() => {
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function activate(tab, focus) {
+    tabs.forEach((item) => {
+      const selected = item === tab;
+      item.setAttribute('aria-selected', String(selected));
+      item.tabIndex = selected ? 0 : -1;
+      document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(tab, false));
+    tab.addEventListener('keydown', (event) => {
+      let next = null;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabs.length - 1;
+      if (next !== null) { event.preventDefault(); activate(tabs[next], true); }
+    });
+  });
+  tabs.forEach((tab, index) => tab.tabIndex = index === 0 ? 0 : -1);
+})();
+</script>
+</body>
+</html>

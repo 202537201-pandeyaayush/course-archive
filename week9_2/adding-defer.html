@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Understand the difference between normal, deferred and asynchronous scripts with a working local loading demonstration.">
+<title>Week 9 Part 2 Task 04 | Adding Defer</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+<script src="analytics-demo.js" async></script>
+<script src="loading-status.js" defer></script>
+</head>
+<body>
+<nav class="topbar"><a href="index.html">← Week 9 · Part 2</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 2 · TASK 04</div><h1>Adding Defer<br>to JavaScript.</h1><p>Understand the difference between normal, deferred and asynchronous scripts with a working local loading demonstration.</p></div></header>
+<main class="wrap">
+<section class="panel"><span class="tag">TASK 04</span><p><b>Student:</b> Pandey Aayush &nbsp;·&nbsp; <b>Student ID:</b> 202537201</p><p class="muted">Project: Student Budget Tracker · Web Programming</p></section>
+
+<section class="panel"><h2>1. Why script loading matters</h2><p>A normal script in the document head can pause HTML parsing while it downloads and runs. The <code>defer</code> attribute downloads the script in parallel and executes it after parsing is complete, preserving the order of deferred scripts. The <code>async</code> attribute also downloads in parallel, but executes as soon as it is ready; execution order is not guaranteed.</p></section>
+<section class="panel"><h2>2. Live script-loading demonstration</h2><p>This page loads a small local app script with <code>defer</code> and a non-tracking demo script with <code>async</code>. The messages below show which events have been observed.</p><div class="demo"><div class="metric"><span>HTML parsing / DOMContentLoaded</span><b id="domStatus">Waiting…</b></div><div class="metric"><span>Deferred app.js</span><b id="deferStatus">Waiting…</b></div><div class="metric"><span>Async demo script</span><b id="asyncStatus">Waiting…</b></div><p id="loadSummary" class="feedback" role="status" aria-live="polite">The demonstration is starting…</p></div><p class="muted">The async demo does not collect or transmit analytics; it only writes a local console message and status marker.</p></section>
+<section class="panel"><h2>3. Code comparison</h2><h3>Parser-blocking script</h3><div class="code">&lt;script src="app.js"&gt;&lt;/script&gt;</div><p class="muted">When placed in the head without async or defer, the browser pauses parsing to fetch and execute it.</p><h3>Deferred script</h3><div class="code">&lt;script src="app.js" defer&gt;&lt;/script&gt;</div><p class="muted">The script downloads while HTML parsing continues and runs after the document has been parsed.</p><h3>Async script</h3><div class="code">&lt;script src="analytics-demo.js" async&gt;&lt;/script&gt;</div><p class="muted">The script runs as soon as it is ready. Use async for independent scripts that do not rely on execution order.</p></section>
+<section class="panel"><h2>4. Recommended approach for this project</h2><p>Use <code>defer</code> for main interface scripts that need the page elements to exist and should execute in document order. Use <code>async</code> only for independent scripts where execution order does not matter. Avoid adding analytics or third-party scripts unless they are actually required.</p></section>
+<section class="panel"><h2>5. Conclusion</h2><p>Deferred loading keeps the HTML parser moving while a script downloads and provides predictable execution after parsing. Async loading is useful for independent scripts, but its execution order is not guaranteed. Choosing the correct loading strategy helps avoid unnecessary delays.</p></section>
+
+<section class="panel"><a class="button" href="index.html">← Back to Week 9 Part 2 tasks</a></section>
+</main>
+<footer>Web Programming · Pandey Aayush · 202537201</footer>
+
+</body>
+</html>

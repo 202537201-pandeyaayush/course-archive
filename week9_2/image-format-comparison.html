@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compare JPEG and WebP versions of a Student Budget Tracker preview and use a responsive picture element with a JPEG fallback.">
+<title>Week 9 Part 2 Task 03 | Comparing Image Formats</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topbar"><a href="index.html">← Week 9 · Part 2</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 2 · TASK 03</div><h1>Comparing Image<br>Formats.</h1><p>Compare JPEG and WebP versions of a Student Budget Tracker preview and use a responsive picture element with a JPEG fallback.</p></div></header>
+<main class="wrap">
+<section class="panel"><span class="tag">TASK 03</span><p><b>Student:</b> Pandey Aayush &nbsp;·&nbsp; <b>Student ID:</b> 202537201</p><p class="muted">Project: Student Budget Tracker · Web Programming</p></section>
+
+<section class="panel"><h2>1. Why compare image formats?</h2><p>Images can account for a large part of a page's downloaded bytes. WebP often provides smaller files than JPEG at visually comparable quality. The browser can be offered WebP first with JPEG as a fallback.</p></section>
+<section class="panel"><h2>2. Same project image · Two formats</h2><div class="demo-grid"><div class="demo"><span class="tag">JPEG</span><img src="assets/budget-tracker-preview.jpg" width="960" height="640" alt="Student Budget Tracker interface preview displayed in JPEG format."><p><b>File size:</b> 49.3 KB</p></div><div class="demo"><span class="tag">WebP</span><img src="assets/budget-tracker-preview.webp" width="960" height="640" alt="The same Student Budget Tracker interface preview displayed in WebP format."><p><b>File size:</b> 20.0 KB</p></div></div><div class="score-card"><span class="muted">WebP file-size reduction for this image</span><strong>59%</strong><span class="muted">29,958 bytes smaller than the JPEG version</span></div><p class="muted">Measured from the two local files included in this package. Results depend on image content and export settings.</p></section>
+<section class="panel"><h2>3. Responsive picture element with fallback</h2><p>The browser selects the WebP source when supported. If it cannot use that source, it falls back to the JPEG in the img element.</p><div class="code">&lt;picture&gt;
+  &lt;source
+    srcset="assets/budget-tracker-preview.webp"
+    type="image/webp"&gt;
+  &lt;img
+    src="assets/budget-tracker-preview.jpg"
+    width="960"
+    height="640"
+    loading="lazy"
+    decoding="async"
+    alt="Student Budget Tracker interface preview"&gt;
+&lt;/picture&gt;</div><div class="demo"><picture><source srcset="assets/budget-tracker-preview.webp" type="image/webp"><img src="assets/budget-tracker-preview.jpg" width="960" height="640" loading="lazy" decoding="async" alt="Student Budget Tracker preview using a WebP source with JPEG fallback."></picture></div></section>
+<section class="panel"><h2>4. Try the image information control</h2><button type="button" class="green" id="infoButton" aria-expanded="false" aria-controls="imageInfo">Show image information</button><div id="imageInfo" class="demo" hidden><p>The image comparison uses the same visual content encoded as JPEG and WebP. In this package, JPEG is 50,482 bytes and WebP is 20,524 bytes.</p><p>The <code>picture</code> element lets the browser choose among supported formats. Always include accurate alt text and reserve image dimensions to reduce layout shifts.</p></div></section>
+<section class="panel"><h2>5. Conclusion</h2><p>Choosing an efficient image format can reduce transferred bytes. The best format and quality setting depend on the image, browser support, and visual requirements. Use a fallback, meaningful alt text, and explicit dimensions.</p></section>
+
+<section class="panel"><a class="button" href="index.html">← Back to Week 9 Part 2 tasks</a></section>
+</main>
+<footer>Web Programming · Pandey Aayush · 202537201</footer>
+<script>
+const infoButton = document.getElementById('infoButton');
+const infoPanel = document.getElementById('imageInfo');
+infoButton.addEventListener('click', () => {
+  const expanded = infoButton.getAttribute('aria-expanded') === 'true';
+  infoButton.setAttribute('aria-expanded', String(!expanded));
+  infoPanel.hidden = expanded;
+  infoButton.textContent = expanded ? 'Show image information' : 'Hide image information';
+});
+</script>
+</body>
+</html>
