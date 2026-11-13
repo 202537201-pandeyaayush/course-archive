@@ -1,14 +1,209 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#101828" />
-    <meta name="description" content="Aayush Pandey's Week 11 student profile card built with React." />
-    <title>Week 11 Part 1 | Student Profile</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile Card | Aayush Pandey</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #e0e7ff, #f8fafc 50%, #dbeafe);
+            color: #101828;
+        }
+
+        .container {
+            width: min(100%, 460px);
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border: 1px solid #dbe3ff;
+            border-radius: 24px;
+            padding: 32px 28px;
+            box-shadow: 0 20px 50px rgba(31, 41, 95, 0.13);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #eef0ff;
+            margin-bottom: 24px;
+        }
+
+        .avatar {
+            width: 76px;
+            height: 76px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2f3bff, #7955e8);
+            color: white;
+            font-size: 25px;
+            font-weight: 800;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 25px rgba(47, 59, 255, 0.25);
+        }
+
+        .label {
+            margin: 0 0 8px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #68708c;
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0 0 7px;
+            font-size: clamp(23px, 5vw, 29px);
+            color: #2f3bff;
+        }
+
+        .student-id {
+            color: #59627b;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            margin: 0 0 15px;
+            font-size: 14px;
+            color: #68708c;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 13px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            background: #f5f6ff;
+            border: 1px solid #e3e6ff;
+            border-radius: 13px;
+            padding: 15px 16px;
+        }
+
+        .info-row strong {
+            color: #46506b;
+            font-size: 14px;
+        }
+
+        .info-row span {
+            color: #202b55;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            color: #737c96;
+            font-size: 12px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 22px;
+            color: #2f3bff;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 400px) {
+            .profile-card {
+                padding: 24px 18px;
+            }
+
+            .avatar {
+                width: 62px;
+                height: 62px;
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+        <article class="profile-card">
+
+            <header class="card-top">
+                <div class="avatar" aria-hidden="true">AP</div>
+
+                <div>
+                    <p class="label">Student Profile</p>
+                    <h1>Aayush Pandey</h1>
+                    <span class="student-id">ID: 202537201</span>
+                </div>
+            </header>
+
+            <h2 class="section-title">Academic Information</h2>
+
+            <section class="info-grid" aria-label="Academic information">
+
+                <div class="info-row">
+                    <strong>Major</strong>
+                    <span>Computer Science</span>
+                </div>
+
+                <div class="info-row">
+                    <strong>Year</strong>
+                    <span>2</span>
+                </div>
+
+                <div class="info-row">
+                    <strong>GPA</strong>
+                    <span>3.61</span>
+                </div>
+
+                <div class="info-row">
+                    <strong>University</strong>
+                    <span>Gachon University</span>
+                </div>
+
+            </section>
+
+            <div class="footer">
+                Web Programming — Week 11 Part 1
+                <br>
+                Created by Aayush Pandey
+            </div>
+
+        </article>
+
+        <div style="text-align: center;">
+            <a class="back-link" href="../index.html">
+                ← Back to Course Archive
+            </a>
+        </div>
+    </main>
+
+</body>
 </html>
