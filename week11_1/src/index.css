@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap");
+
+:root {
+  font-family: "Bricolage Grotesque", sans-serif;
+  color: #101828;
+  background: #eef1ff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #101828;
+  --blue: #2f3bff;
+  --sun: #ffe45c;
+  --muted: #66708f;
+  --line: #d9def5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 85% 16%, rgba(47, 59, 255, .10), transparent 28rem),
+    #eef1ff;
+}
+
+a { color: inherit; }
+
+.page-shell { min-height: 100vh; }
+
+.topbar {
+  min-height: 58px;
+  padding: 0 clamp(20px, 6vw, 88px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: white;
+  background: var(--ink);
+  font-size: .88rem;
+}
+
+.topbar a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.topbar a:hover { color: var(--sun); }
+
+.topbar span, .eyebrow, .detail-label, .card-topline, .card-bottom,
+.student-id, .section-index {
+  font-family: "DM Mono", monospace;
+  letter-spacing: .09em;
+}
+
+.topbar span {
+  color: #aeb7dc;
+  font-size: .7rem;
+}
+
+.content {
+  width: min(100% - 40px, 1040px);
+  margin: 0 auto;
+  padding: 72px 0 30px;
+}
+
+.intro { margin-bottom: 54px; }
+
+.eyebrow {
+  margin: 0 0 13px;
+  color: var(--blue);
+  font-size: .72rem;
+  font-weight: 500;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.3rem, 9vw, 6.8rem);
+  line-height: .92;
+  letter-spacing: -.075em;
+  font-weight: 800;
+}
+
+h1 span { color: var(--blue); }
+
+.intro-copy {
+  max-width: 540px;
+  margin: 22px 0 0;
+  color: #4b5576;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.profile-area {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255,255,255,.68);
+  box-shadow: 0 18px 50px rgba(28, 39, 100, .06);
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.section-heading .eyebrow { margin-bottom: 6px; }
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 1.65rem;
+  letter-spacing: -.04em;
+}
+
+.section-index {
+  color: #7c85a6;
+  font-size: .72rem;
+}
+
+.profile-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 38px);
+  overflow: hidden;
+  border: 1px solid #dce1ff;
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 22px 55px rgba(28, 39, 100, .12);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 65px rgba(28, 39, 100, .16);
+}
+
+.card-topline {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #687293;
+  font-size: .65rem;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #20b486;
+  box-shadow: 0 0 0 4px #e2f8f0;
+}
+
+.card-label {
+  margin-left: auto;
+  color: #929ab5;
+  font-size: .6rem;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 34px 0 28px;
+}
+
+.avatar {
+  flex: 0 0 88px;
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  border: 5px solid #eef0ff;
+  border-radius: 50%;
+  color: white;
+  background: linear-gradient(135deg, #2f3bff, #7b55ed);
+  box-shadow: 0 10px 25px rgba(47, 59, 255, .25);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -.06em;
+}
+
+.identity-label {
+  margin: 0 0 7px;
+  color: #7b83a0;
+  font-family: "DM Mono", monospace;
+  font-size: .65rem;
+  letter-spacing: .08em;
+}
+
+.identity h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  letter-spacing: -.055em;
+}
+
+.student-id {
+  margin: 0;
+  color: #6b7596;
+  font-size: .68rem;
+}
+
+.card-divider {
+  height: 1px;
+  background: #e7eaf7;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1.3fr .8fr .9fr;
+  gap: 12px;
+  padding: 26px 0;
+}
+
+.detail {
+  min-height: 88px;
+  padding: 17px;
+  border: 1px solid #e8ebf8;
+  border-radius: 14px;
+  background: #f8f9ff;
+}
+
+.detail-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #7c85a5;
+  font-size: .62rem;
+}
+
+.detail strong {
+  display: block;
+  color: #18213d;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.detail-unit, .gpa-scale {
+  color: #8b93ad;
+  font-size: .68rem;
+  font-weight: 500;
+}
+
+.gpa-detail {
+  background: #fff9d9;
+  border-color: #f5e9a7;
+}
+
+.gpa-detail strong { color: #20254b; }
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 17px;
+  border-top: 1px solid #e7eaf7;
+  color: #8b93ad;
+  font-size: .62rem;
+}
+
+.learning-note {
+  display: flex;
+  gap: 17px;
+  align-items: flex-start;
+  margin: 28px 0 54px;
+  padding: 23px 25px;
+  border-radius: 18px;
+  background: #101828;
+  color: white;
+}
+
+.note-mark {
+  display: grid;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--sun);
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.learning-note h2 {
+  margin: 1px 0 7px;
+  font-size: 1.08rem;
+}
+
+.learning-note p {
+  max-width: 720px;
+  margin: 0;
+  color: #c3cbe5;
+  font-size: .91rem;
+  line-height: 1.65;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 20px 0 10px;
+  border-top: 1px solid var(--line);
+  color: #707a9a;
+  font-size: .76rem;
+}
+
+@media (max-width: 620px) {
+  .content { padding-top: 48px; }
+  .profile-area { padding: 18px; }
+  .identity { gap: 15px; }
+  .avatar { flex-basis: 70px; width: 70px; height: 70px; font-size: 1.4rem; }
+  .details-grid { grid-template-columns: 1fr 1fr; }
+  .gpa-detail { grid-column: 1 / -1; }
+  .topbar span { display: none; }
+  footer { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
