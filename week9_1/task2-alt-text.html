@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Practice writing accessible alternative text for informative, decorative, linked, and chart images."><title>Week 9 Task 02 | Alt Text</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="topbar"><a href="index.html">← Week 9 · Part 1</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 1 · TASK 02</div><h1>Alt Text<br>for Images.</h1><p>Practice writing accessible alternative text for informative, decorative, linked, and chart images.</p></div></header>
+<main class="wrap">
+<div class="panel"><span class="tag">TASK 02</span><p><b>Student:</b> Pandey Aayush &nbsp;·&nbsp; <b>Student ID:</b> 202537201</p></div>
+
+<section class="panel"><h2>1. What is alternative text?</h2><p>Alternative text describes the purpose or meaning of an image for people who use screen readers or cannot view the image. The description should depend on the image's context, not just its appearance.</p></section>
+<section class="panel"><h2>2. Image examples</h2><div class="demo-grid">
+<div class="demo"><span class="tag">Informative image</span><img src="assets/campus-building.svg" alt="University campus building with a central entrance and rows of windows."><p><b>Alt text:</b> "University campus building with a central entrance and rows of windows."</p><p class="muted">Describe the meaningful content.</p></div>
+<div class="demo"><span class="tag">Decorative image</span><img src="assets/decorative-wave.svg" alt=""><p><b>Alt text:</b> Empty string: <code>alt=""</code></p><p class="muted">Decorative images should be ignored by screen readers.</p></div>
+<div class="demo"><span class="tag">Linked image</span><a href="index.html"><img src="assets/tracker-mark.svg" alt="Student Budget Tracker home"></a><p><b>Alt text:</b> "Student Budget Tracker home"</p><p class="muted">The description should explain the link destination or action.</p></div>
+<div class="demo"><span class="tag">Chart image</span><img src="assets/enrollment-chart.svg" alt="Bar chart showing enrollment increasing from 1,200 in 2024 to 1,400 in 2025 and 1,476 in 2026."><p><b>Alt text:</b> Summarize the trend and important values.</p><p class="muted">Provide the exact data in nearby text when details matter.</p></div>
+</div></section>
+<section class="panel"><h2>3. Before and after example</h2><div class="demo-grid"><div class="demo"><h3>Before — missing description</h3><div class="code">&lt;img src="campus-building.svg"&gt;</div><p class="bad-text">No alt attribute: assistive technology may announce the filename.</p></div><div class="demo"><h3>After — meaningful description</h3><div class="code">&lt;img src="campus-building.svg"
+ alt="University campus building with a central entrance and rows of windows."&gt;</div><p class="good-text">The image purpose is communicated to screen-reader users.</p></div></div></section>
+<section class="panel"><h2>4. Test the alt text</h2><p>Use the button to check the image descriptions on this page.</p><button type="button" class="green" id="checkAlt">Check my alt text</button><div id="altFeedback" class="feedback" role="status" aria-live="polite">No check has been run yet.</div></section>
+<section class="panel"><h2>5. Conclusion</h2><p>Informative images need useful descriptions, decorative images should use an empty alt attribute, and linked images should explain their destination. Charts need concise descriptions of the key pattern and data, with detailed values available as text when necessary.</p></section>
+
+<div class="panel"><a class="button" href="index.html">← Back to Week 9 tasks</a></div>
+</main>
+<footer>Web Programming · Pandey Aayush · 202537201</footer>
+<script>
+document.getElementById('checkAlt').addEventListener('click', () => {
+  const images = [...document.querySelectorAll('main img')];
+  const results = images.map((img, index) => {
+    const alt = img.getAttribute('alt');
+    if (alt === null) return `Image ${index + 1}: missing alt attribute.`;
+    if (img.closest('a') && !alt.trim()) return `Image ${index + 1}: linked image needs an accessible name.`;
+    if (!img.closest('a') && img.getAttribute('src').includes('decorative') && alt !== '') return `Image ${index + 1}: decorative image should use alt="".`;
+    if (alt === '') return `Image ${index + 1}: decorative image correctly uses empty alt text.`;
+    return `Image ${index + 1}: descriptive alt text found.`;
+  });
+  document.getElementById('altFeedback').textContent = results.join(' ');
+});
+</script>
+</body></html>

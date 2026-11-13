@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Apply accessible names, visible labels, clear form errors, and meaningful image alternative text."><title>Week 9 Task 04 | Lighthouse Fix</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="topbar"><a href="index.html">← Week 9 · Part 1</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 1 · TASK 04</div><h1>Lighthouse<br>Fix.</h1><p>Apply accessible names, visible labels, clear form errors, and meaningful image alternative text.</p></div></header>
+<main class="wrap">
+<div class="panel"><span class="tag">TASK 04</span><p><b>Student:</b> Pandey Aayush &nbsp;·&nbsp; <b>Student ID:</b> 202537201</p></div>
+
+<section class="panel"><h2>1. Lighthouse issues to fix</h2><p>This task combines four common accessibility improvements: accessible names for icon controls, visible labels for form fields, clear error messages, and meaningful alternative text for linked images.</p></section>
+<section class="panel"><h2>2. Before and after form</h2><div class="demo-grid">
+<div class="demo"><span class="tag">Before — issues</span><h3 style="margin-top:12px">Create an account</h3><button type="button" class="secondary" title="Example icon-only control"><span aria-hidden="true">⌕</span></button><input type="email" placeholder="Email address" aria-label="Email address before example" style="margin-top:10px"><p class="bad-text" style="font-size:13px">Error message is not associated with a field.</p><div class="code">&lt;button&gt;🔍&lt;/button&gt;
+&lt;input placeholder="Email address"&gt;</div></div>
+<div class="demo"><span class="tag">After — accessible</span><h3 style="margin-top:12px">Create an account</h3><button type="button" class="green" aria-label="Search">⌕</button><label for="emailFixed">Email address</label><input id="emailFixed" type="email" placeholder="you@example.com" aria-describedby="emailHelp"><p id="emailHelp" class="muted">Use a valid email address.</p><div class="code">&lt;button aria-label="Search"&gt;⌕&lt;/button&gt;
+&lt;label for="email"&gt;Email address&lt;/label&gt;
+&lt;input id="email" type="email"&gt;</div></div>
+</div></section>
+<section class="panel"><h2>3. Working form validation</h2><form id="signupForm" class="demo" novalidate><label for="signupEmail">Email address</label><input id="signupEmail" type="email" autocomplete="email" required aria-describedby="emailError"><p id="emailError" class="muted">Enter a valid email address.</p><label for="signupPassword">Password</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required aria-describedby="passwordError"><p id="passwordError" class="muted">Use at least 8 characters.</p><button type="submit">Create account</button><p id="formStatus" class="feedback" role="status" aria-live="polite">This demo validates locally and does not send information to a server.</p></form></section>
+<section class="panel"><h2>4. Linked image alternative text</h2><div class="demo"><a href="index.html"><img src="assets/tracker-mark.svg" alt="Student Budget Tracker home" width="160"></a><p class="muted">The image is a link, so its alt text describes the destination.</p></div></section>
+<section class="panel"><h2>5. SVG accessibility illustration</h2><p>The SVG below is a scalable vector diagram. It includes a title and description so assistive technology can identify the graphic.</p><svg viewBox="0 0 760 180" role="img" aria-labelledby="fixSvgTitle fixSvgDesc" style="width:100%;height:auto"><title id="fixSvgTitle">Accessibility fixes workflow</title><desc id="fixSvgDesc">Four steps: add accessible names, label fields, explain errors, and describe linked images.</desc><rect x="8" y="22" width="170" height="125" rx="14" fill="#eaf0ff" stroke="#315cff" stroke-width="2"/><rect x="200" y="22" width="170" height="125" rx="14" fill="#eaf0ff" stroke="#315cff" stroke-width="2"/><rect x="392" y="22" width="170" height="125" rx="14" fill="#eafaf5" stroke="#12805c" stroke-width="2"/><rect x="584" y="22" width="168" height="125" rx="14" fill="#eafaf5" stroke="#12805c" stroke-width="2"/><g font-family="Arial" font-size="16" font-weight="bold" fill="#17213b" text-anchor="middle"><text x="93" y="66">Name</text><text x="285" y="66">Label</text><text x="477" y="66">Explain</text><text x="668" y="66">Describe</text></g><g font-family="Arial" font-size="12" fill="#53617a" text-anchor="middle"><text x="93" y="94">Buttons</text><text x="285" y="94">Form fields</text><text x="477" y="94">Errors</text><text x="668" y="94">Linked images</text></g><g stroke="#64718a" stroke-width="3" fill="none"><path d="M179 85h18m-7 -7 7 7 -7 7"/><path d="M371 85h18m-7 -7 7 7 -7 7"/><path d="M563 85h18m-7 -7 7 7 -7 7"/></g></svg></section>
+<section class="panel"><h2>6. Conclusion</h2><p>Accessible names, persistent labels, clear validation messages, and descriptive alt text improve the experience for keyboard and screen-reader users. Lighthouse can help find issues, but manual testing is also important.</p></section>
+
+<div class="panel"><a class="button" href="index.html">← Back to Week 9 tasks</a></div>
+</main>
+<footer>Web Programming · Pandey Aayush · 202537201</footer>
+<script>
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const email = document.getElementById('signupEmail');
+  const password = document.getElementById('signupPassword');
+  const status = document.getElementById('formStatus');
+  if (!email.value || !email.validity.valid) {
+    status.textContent = 'Please enter a valid email address.';
+    email.focus();
+    return;
+  }
+  if (password.value.length < 8) {
+    status.textContent = 'Password must contain at least 8 characters.';
+    password.focus();
+    return;
+  }
+  status.textContent = 'Validation successful. This is a front-end demonstration only.';
+});
+</script>
+</body></html>

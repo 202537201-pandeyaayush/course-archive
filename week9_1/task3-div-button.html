@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Compare a generic clickable element with a semantic button that supports keyboard operation."><title>Week 9 Task 03 | Div Button</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="topbar"><a href="index.html">← Week 9 · Part 1</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 1 · TASK 03</div><h1>Div Button<br>vs. Native Button.</h1><p>Compare a generic clickable element with a semantic button that supports keyboard operation.</p></div></header>
+<main class="wrap">
+<div class="panel"><span class="tag">TASK 03</span><p><b>Student:</b> Pandey Aayush &nbsp;·&nbsp; <b>Student ID:</b> 202537201</p></div>
+
+<section class="panel"><h2>1. Why a clickable div is a problem</h2><p>A generic <code>div</code> is not a button. Adding a mouse click handler does not automatically make it keyboard-focusable or give it the expected button behavior.</p></section>
+<section class="panel"><h2>2. Before and after comparison</h2><div class="demo-grid"><div class="demo"><span class="tag">Before — generic div</span><p style="margin:12px 0">The element below responds to a mouse click only.</p><div class="fake-div" id="fakeAction" onclick="document.getElementById('fakeResult').textContent='The div was clicked with a mouse.'">Submit form</div><p id="fakeResult" class="feedback" aria-live="polite">Try Tab: this div is skipped.</p></div><div class="demo"><span class="tag">After — native button</span><p style="margin:12px 0">The control below supports mouse and keyboard operation.</p><button type="button" class="green" id="realAction">Submit form</button><p id="realResult" class="feedback" role="status" aria-live="polite">Use Tab, then Enter or Space.</p></div></div></section>
+<section class="panel"><h2>3. Keyboard and focus test</h2><p>Press Tab to move to the native button. Its yellow outline indicates keyboard focus. Press Enter or Space to activate it.</p><button type="button" id="keyboardTest">Test keyboard-accessible control</button><p id="keyboardFeedback" class="feedback" role="status" aria-live="polite">Waiting for activation.</p></section>
+<section class="panel"><h2>4. Code comparison</h2><h3>Before</h3><div class="code">&lt;div onclick="submitForm()"&gt;Submit form&lt;/div&gt;</div><h3>After</h3><div class="code">&lt;button type="button" onclick="submitForm()"&gt;
+  Submit form
+&lt;/button&gt;</div><p>Use native HTML controls whenever possible. They provide standard keyboard behavior and semantics.</p></section>
+<section class="panel"><h2>5. Conclusion</h2><p>A native button is easier to operate with a keyboard and assistive technology than a generic clickable div. It also provides expected focus and activation behavior without needing custom keyboard scripting.</p></section>
+
+<div class="panel"><a class="button" href="index.html">← Back to Week 9 tasks</a></div>
+</main>
+<footer>Web Programming · Pandey Aayush · 202537201</footer>
+<script>
+document.getElementById('realAction').addEventListener('click', () => {
+  document.getElementById('realResult').textContent = 'Success: the native button activated by mouse or keyboard.';
+});
+document.getElementById('keyboardTest').addEventListener('click', () => {
+  document.getElementById('keyboardFeedback').textContent = 'The native button activated successfully.';
+});
+</script>
+</body></html>
