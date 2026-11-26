@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Search for books by title or author using the Open Library Search API.">
+<title>Week 10 | Book Search App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="week10.css">
+</head>
+<body>
+<nav class="bar" aria-label="Breadcrumb">
+<a href="../index.html">Web Programming</a><span class="sep">/</span>
+<a class="here" href="index.html">Week 10</a>
+<button class="back" type="button" onclick="history.back()">Back</button>
+</nav>
+<header class="hero"><div class="eyebrow">WEEK 10 / PART 2 / TASK 03</div><h1>Book Search<br>App</h1>
+<p>Search the Open Library catalogue by title or author, browse results and open book records.</p>
+<div class="hero-meta"><span>Aayush Pandey</span><span>202537201</span><span>Fetch API · async/await</span></div></header>
+<main class="w10-main">
+<section class="panel"><h2>Student &amp; API Information</h2><div class="profile-grid">
+<div class="profile-item"><small>Student</small><strong>Aayush Pandey</strong></div><div class="profile-item"><small>Student ID</small><strong>202537201</strong></div><div class="profile-item"><small>Data Source</small><strong>Open Library</strong></div>
+</div><p class="muted">Results are fetched as JSON from the Open Library Search API and displayed as book cards.</p></section>
+<section class="book-app" aria-labelledby="search-title">
+<h2 id="search-title">Find a book</h2><p>Try “The Hobbit”, “Pride and Prejudice”, or an author's name.</p>
+<form id="searchForm" class="book-form">
+<div><label for="query">Search term</label><input id="query" name="query" type="search" maxlength="100" placeholder="Book title or author" autocomplete="off" required></div>
+<div><label for="searchType">Search by</label><select id="searchType" name="searchType"><option value="title">Book title</option><option value="author">Author</option></select></div>
+<button id="searchButton" type="submit">Search books</button>
+</form>
+<p id="status" class="search-status" role="status" aria-live="polite">Enter a search term and press Search books.</p>
+<div id="results" class="book-grid" aria-label="Book search results"></div>
+<div class="pager"><button id="previousPage" type="button" disabled>← Previous</button><span id="pageStatus" aria-live="polite">Page 1</span><button id="nextPage" type="button" disabled>Next →</button></div>
+<p class="api-credit">Book data from <a href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">Open Library</a>. Some books may not have a cover image.</p>
+</section>
+<section class="panel"><h2>How it works</h2>
+<div class="fix"><h3>1. Search input</h3><p>Enter a book title or author and choose the search type.</p></div>
+<div class="fix"><h3>2. Fetch API</h3><p>JavaScript builds a query URL and retrieves JSON with async/await.</p></div>
+<div class="fix"><h3>3. Display results</h3><p>Each card shows its title, author, first publication year, cover when available and catalogue link.</p></div>
+<div class="fix"><h3>4. Handle states</h3><p>Loading, no-result, error and pagination messages are displayed.</p></div>
+</section>
+<p><a href="index.html">← Back to Week 10 tasks</a></p>
+</main>
+<footer class="site-footer">Aayush Pandey · 202537201 · Web Programming</footer>
+<script src="book-search.js" defer></script>
+</body></html>
