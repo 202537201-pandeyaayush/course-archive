@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Practice alternative text for informative, decorative, linked, and chart images."><title>Task 02 | Alternative Text</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="topbar" aria-label="Page navigation"><a href="index.html">← Week 9 · Part 1</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 1 · TASK 02</div><h1>Alternative Text<br>for Images.</h1><p>Learn how alternative text communicates the purpose and meaning of images to people who cannot see them.</p></div></header>
+<main class="wrap">
+<section class="panel"><span class="tag">TASK 02</span><p><strong>Student:</strong> Aayush Pandey &nbsp;·&nbsp; <strong>Student ID:</strong> 202537201</p><p>Good alternative text depends on context. Informative images need a concise description, decorative images should be ignored by assistive technology, and linked images should communicate the link's purpose.</p></section>
+<section class="panel"><h2>1. Four image examples</h2><div class="demo-grid">
+<div class="demo"><span class="tag">Informative image</span><figure><img src="assets/campus-building.svg" alt="Illustration of a university campus building with a blue roof, central entrance, and rows of windows."><figcaption>Alt text describes the meaningful content of the campus illustration.</figcaption></figure></div>
+<div class="demo"><span class="tag">Decorative image</span><figure><img src="assets/decorative-wave.svg" alt=""><figcaption>This wave is decorative, so it uses an empty alt attribute (alt="").</figcaption></figure></div>
+<div class="demo"><span class="tag">Linked image</span><figure><a href="index.html"><img src="assets/tracker-mark.svg" alt="Student Budget Tracker home"></a><figcaption>The alt text communicates the link destination: Student Budget Tracker home.</figcaption></figure></div>
+<div class="demo"><span class="tag">Chart image</span><figure><img src="assets/enrollment-chart.svg" alt="Bar chart showing enrollment increasing from 1,200 students in 2024 to 1,400 in 2025 and 1,476 in 2026."><figcaption>Summarize the trend and important values; provide a nearby data table if users need all details.</figcaption></figure></div>
+</div></section>
+<section class="panel"><h2>2. Before-and-after example</h2><div class="two-col"><div class="demo"><h3>Before: missing alt attribute</h3><pre class="code">&lt;img src="campus-building.svg"&gt;</pre><p class="bad-text">The image has no alternative text attribute.</p></div><div class="demo"><h3>After: descriptive alt text</h3><pre class="code">&lt;img src="campus-building.svg"
+ alt="University campus building with a blue roof..."&gt;</pre><p class="good-text">A concise description communicates the image's relevant information.</p></div></div></section>
+<section class="panel"><h2>3. Check the examples</h2><p>Run the checker to inspect the four images in this activity.</p><button type="button" class="green" id="checkAlt">Check my alt text</button><div id="altFeedback" class="feedback" role="status" aria-live="polite">No check has been run yet.</div></section>
+<section class="panel"><h2>4. Key points</h2><ul><li>Informative image: write useful alt text that conveys its relevant meaning.</li><li>Decorative image: use <code>alt=""</code> so it is skipped by screen readers.</li><li>Linked image: describe the link's destination or action.</li><li>Chart: summarize the main pattern and important values; include a nearby text equivalent for detailed data.</li></ul></section>
+<div class="panel"><a class="button" href="index.html">← Back to Week 9 tasks</a></div>
+</main><footer>Web Programming · Aayush Pandey · 202537201</footer>
+<script>
+document.getElementById('checkAlt').addEventListener('click', () => {
+  const images = [...document.querySelectorAll('main img')];
+  const issues = [];
+  images.forEach((img, index) => {
+    const alt = img.getAttribute('alt');
+    if (alt === null) issues.push(`Image ${index + 1}: missing alt attribute.`);
+    else if (img.closest('a') && !alt.trim()) issues.push(`Image ${index + 1}: linked image needs an accessible name.`);
+    else if (img.getAttribute('src').includes('decorative-wave') && alt !== '') issues.push(`Image ${index + 1}: decorative image should use alt="".`);
+  });
+  const output = document.getElementById('altFeedback');
+  output.textContent = issues.length ? issues.join(' ') : `All ${images.length} image examples have an alt attribute and the decorative/linked examples are handled correctly.`;
+});
+</script>
+</body></html>

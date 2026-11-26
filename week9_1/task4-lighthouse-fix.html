@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Demonstrate accessible names, form labels, validation feedback, and meaningful alternative text."><title>Task 04 | Practical Accessibility Fixes</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="topbar" aria-label="Page navigation"><a href="index.html">← Week 9 · Part 1</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 1 · TASK 04</div><h1>Practical<br>Accessibility Fixes.</h1><p>Apply accessible names, visible labels, clear validation messages, and meaningful linked-image descriptions.</p></div></header>
+<main class="wrap">
+<section class="panel"><span class="tag">TASK 04</span><p><strong>Student:</strong> Aayush Pandey &nbsp;·&nbsp; <strong>Student ID:</strong> 202537201</p></section>
+<section class="panel"><h2>1. Common issues and fixes</h2><div class="issue"><h3>Icon-only button without a name</h3><p>Assistive technology needs a programmatic name for a control, such as visible text or an appropriate aria-label.</p></div><div class="issue"><h3>Input without a persistent label</h3><p>A placeholder is not a substitute for a visible label associated with the form control.</p></div><div class="issue"><h3>Unclear validation feedback</h3><p>Users need an understandable error message associated with the relevant field, and the invalid state should be exposed.</p></div><div class="issue"><h3>Linked image without useful alternative text</h3><p>The accessible name of an image link should communicate where the link goes or what it does.</p></div></section>
+<section class="panel"><h2>2. Before-and-after examples</h2><div class="demo-grid"><div class="demo"><span class="tag">Before · issues</span><h3 style="margin-top:12px">Example controls</h3><button type="button" class="secondary"><span aria-hidden="true">⌕</span></button><input type="email" placeholder="Email address" style="margin-top:10px"><p class="bad-text">Placeholder-only example: no persistent visible label is provided.</p><pre class="code">&lt;button&gt;⌕&lt;/button&gt;
+&lt;input placeholder="Email"&gt;</pre></div><div class="demo"><span class="tag">After · accessible pattern</span><h3 style="margin-top:12px">Example controls</h3><button type="button" class="green" aria-label="Search"><span aria-hidden="true">⌕</span></button><label for="emailExample">Email address</label><input id="emailExample" type="email" autocomplete="email" aria-describedby="emailExampleHelp"><p id="emailExampleHelp" class="muted">Enter the email address you use for your account.</p><pre class="code">&lt;button aria-label="Search"&gt;⌕&lt;/button&gt;
+&lt;label for="email"&gt;Email address&lt;/label&gt;
+&lt;input id="email" type="email"&gt;</pre></div></div></section>
+<section class="panel"><h2>3. Working form validation</h2><p>Try submitting the form empty, with an invalid email, or with a password shorter than eight characters. Feedback is shown beside each field and announced through a live region.</p>
+<form id="signupForm" class="demo" novalidate>
+  <label for="signupEmail">Email address <span aria-hidden="true">*</span></label>
+  <input id="signupEmail" name="email" type="email" autocomplete="email" required aria-describedby="emailHelp emailError">
+  <p id="emailHelp" class="muted">Enter a valid email address.</p><p id="emailError" class="error" aria-live="polite"></p>
+  <label for="signupPassword">Password <span aria-hidden="true">*</span></label>
+  <input id="signupPassword" name="password" type="password" autocomplete="new-password" minlength="8" required aria-describedby="passwordHelp passwordError">
+  <p id="passwordHelp" class="muted">Use at least 8 characters.</p><p id="passwordError" class="error" aria-live="polite"></p>
+  <button type="submit">Create account</button>
+  <p id="formStatus" class="feedback" role="status" aria-live="polite">This front-end demonstration does not send or store your information.</p>
+</form></section>
+<section class="panel"><h2>4. Linked image alternative text</h2><div class="demo"><a href="index.html"><img src="assets/tracker-mark.svg" alt="Student Budget Tracker home" width="160" height="100"></a><p class="muted">Because the image is inside a link, its alt text communicates the link's destination.</p></div></section>
+<section class="panel"><h2>5. Accessibility workflow SVG</h2><p>The diagram is an inline SVG with a title and description for assistive technology.</p><svg viewBox="0 0 760 180" role="img" aria-labelledby="workflowTitle workflowDesc" style="width:100%;height:auto"><title id="workflowTitle">Accessibility improvement workflow</title><desc id="workflowDesc">Four steps: name buttons, label form fields, explain validation errors, and describe linked images.</desc><rect x="8" y="22" width="170" height="125" rx="14" fill="#eaf0ff" stroke="#315cff" stroke-width="2"/><rect x="200" y="22" width="170" height="125" rx="14" fill="#eaf0ff" stroke="#315cff" stroke-width="2"/><rect x="392" y="22" width="170" height="125" rx="14" fill="#eafaf5" stroke="#08764f" stroke-width="2"/><rect x="584" y="22" width="168" height="125" rx="14" fill="#eafaf5" stroke="#08764f" stroke-width="2"/><g font-family="Arial" font-size="16" font-weight="bold" fill="#17213b" text-anchor="middle"><text x="93" y="66">Name</text><text x="285" y="66">Label</text><text x="477" y="66">Explain</text><text x="668" y="66">Describe</text></g><g font-family="Arial" font-size="12" fill="#334155" text-anchor="middle"><text x="93" y="94">Buttons</text><text x="285" y="94">Form fields</text><text x="477" y="94">Errors</text><text x="668" y="94">Linked images</text></g><g stroke="#475569" stroke-width="3" fill="none"><path d="M179 85h18m-7 -7 7 7 -7 7"/><path d="M371 85h18m-7 -7 7 7 -7 7"/><path d="M563 85h18m-7 -7 7 7 -7 7"/></g></svg></section>
+<section class="panel"><h2>6. Conclusion</h2><p>Accessible names, persistent labels, field-specific error messages, and meaningful alternative text make interfaces easier to understand and operate. Automated audits help identify issues, but manual keyboard and screen-reader checks remain important.</p></section>
+<div class="panel"><a class="button" href="index.html">← Back to Week 9 tasks</a></div>
+</main><footer>Web Programming · Aayush Pandey · 202537201</footer>
+<script>
+const form = document.getElementById('signupForm');
+const email = document.getElementById('signupEmail');
+const password = document.getElementById('signupPassword');
+function setError(input, errorId, message) {
+  document.getElementById(errorId).textContent = message;
+  if (message) input.setAttribute('aria-invalid', 'true');
+  else input.removeAttribute('aria-invalid');
+}
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const emailInvalid = !email.value.trim() || !email.validity.valid;
+  const passwordInvalid = password.value.length < 8;
+  setError(email, 'emailError', emailInvalid ? 'Please enter a valid email address.' : '');
+  setError(password, 'passwordError', passwordInvalid ? 'Password must contain at least 8 characters.' : '');
+  const status = document.getElementById('formStatus');
+  if (emailInvalid || passwordInvalid) {
+    status.textContent = 'Please correct the highlighted fields and submit again.';
+    (emailInvalid ? email : password).focus();
+    return;
+  }
+  status.textContent = 'Validation successful. This is a local demonstration only; no information was sent.';
+});
+email.addEventListener('input', () => setError(email, 'emailError', ''));
+password.addEventListener('input', () => setError(password, 'passwordError', ''));
+</script>
+</body></html>

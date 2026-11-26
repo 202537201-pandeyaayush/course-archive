@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Compare a clickable div with a native HTML button and test keyboard accessibility."><title>Task 03 | Div vs Button</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<nav class="topbar" aria-label="Page navigation"><a href="index.html">← Week 9 · Part 1</a><a class="back" href="../index.html">Back to archive</a></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">WEEK 09 · PART 1 · TASK 03</div><h1>Div vs. Native<br>Button.</h1><p>Compare a generic clickable element with a semantic button that supports keyboard operation and assistive technology.</p></div></header>
+<main class="wrap">
+<section class="panel"><span class="tag">TASK 03</span><p><strong>Student:</strong> Aayush Pandey &nbsp;·&nbsp; <strong>Student ID:</strong> 202537201</p></section>
+<section class="panel"><h2>1. Why semantics matter</h2><p>A <code>div</code> is a generic container. Adding an <code>onclick</code> handler does not automatically make it focusable, announce it as a button, or provide standard Enter/Space activation. A native <code>button</code> provides these behaviors by default.</p></section>
+<section class="panel"><h2>2. Before-and-after comparison</h2><div class="demo-grid"><div class="demo"><span class="tag">Before · generic div</span><p>This element responds to a mouse click but is not in the normal keyboard tab order.</p><div class="fake-div" id="fakeAction" onclick="document.getElementById('fakeResult').textContent='The generic div received a mouse click.'">Submit form</div><p id="fakeResult" class="feedback" role="status" aria-live="polite">Try pressing Tab: this generic div is skipped.</p><pre class="code">&lt;div onclick="submitForm()"&gt;
+  Submit form
+&lt;/div&gt;</pre></div><div class="demo"><span class="tag">After · native button</span><p>This semantic button supports keyboard focus and activation.</p><button type="button" class="green" id="realAction">Submit form</button><p id="realResult" class="feedback" role="status" aria-live="polite">Use Tab, then press Enter or Space.</p><pre class="code">&lt;button type="button"
+  onclick="submitForm()"&gt;
+  Submit form
+&lt;/button&gt;</pre></div></div></section>
+<section class="panel"><h2>3. Keyboard test</h2><p>Use the Tab key to reach the button below. Confirm that the visible focus outline appears, then press Enter or Space.</p><button type="button" id="keyboardTest">Test keyboard-accessible control</button><p id="keyboardFeedback" class="feedback" role="status" aria-live="polite">Waiting for activation.</p></section>
+<section class="panel"><h2>4. What to remember</h2><ul><li>Choose an element based on its meaning, not just its appearance.</li><li>Use a native button for an action and an anchor for navigation.</li><li>Keep a visible keyboard focus indicator.</li><li>Use custom keyboard handling only when a native semantic element cannot meet the requirement.</li></ul></section>
+<div class="panel"><a class="button" href="index.html">← Back to Week 9 tasks</a></div>
+</main><footer>Web Programming · Aayush Pandey · 202537201</footer>
+<script>
+document.getElementById('realAction').addEventListener('click', () => { document.getElementById('realResult').textContent = 'Success: the native button was activated.'; });
+document.getElementById('keyboardTest').addEventListener('click', () => { document.getElementById('keyboardFeedback').textContent = 'The native button activated successfully. Mouse, Enter, and Space activation are supported.'; });
+</script>
+</body></html>
