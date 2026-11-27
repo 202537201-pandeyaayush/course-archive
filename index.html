@@ -1,238 +1,180 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Web Programming | Aayush Pandey</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aayush Pandey's Web Programming course archive, weekly assignments and projects.">
+  <meta name="theme-color" content="#101828">
+  <title>Web Programming | Aayush Pandey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="assets/archive-home.css">
+  <script src="assets/archive-home.js" defer></script>
 </head>
-
 <body>
+  <nav class="topbar" aria-label="Main navigation">
+    <a class="brand" href="index.html"><span class="brand-mark">A</span><span>Web Programming</span></a>
+    <div class="nav-actions">
+      <a href="#coursework">Coursework</a>
+      <a href="https://202537201-pandeyaayush.github.io/my-portfolio/task1.html#contact" target="_blank" rel="noopener noreferrer">Portfolio <span aria-hidden="true">↗</span></a>
+      <button class="back" type="button" onclick="history.back()">Back</button>
+    </div>
+  </nav>
 
-    <nav class="bar">
-        <a class="here" href="index.html">Web Programming</a>
-        <button class="back" onclick="history.back()">Back</button>
-    </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> MY LEARNING JOURNEY</span>
+        <p class="hero-overline">WEB PROGRAMMING · COURSE ARCHIVE</p>
+        <h1>Building for<br><span>the web.</span></h1>
+        <p class="hero-description">Course archive of Aayush Pandey, student number 202537201.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#coursework">Explore coursework <span aria-hidden="true">↘</span></a>
+          <a class="text-btn" href="https://202537201-pandeyaayush.github.io/my-portfolio/task1.html#contact" target="_blank" rel="noopener noreferrer">Visit my portfolio <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-meta"><span>HTML</span><i></i><span>CSS</span><i></i><span>JavaScript</span><i></i><span>React</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Developer workspace with laptop and code">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Laptop showing a code editor on a developer's desk" fetchpriority="high">
+        <div class="visual-tint"></div>
+        <div class="visual-tag"><span class="tag-dot"></span> Learning by building</div>
+        <div class="floating-code" aria-hidden="true"><span class="code-top"><b></b><b></b><b></b></span><code><em>&lt;div</em> class=<strong>"ideas"</strong><em>&gt;</em><br>&nbsp; create<span>()</span>;<br><em>&lt;/div&gt;</em></code></div>
+        <div class="visual-index">01 <span>/</span> 12</div>
+      </div>
+    </div>
+    <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>AAYUSH PANDEY · 202537201</span></div>
+  </header>
 
-    <header class="hero">
-        <h1>Web<br>Programming</h1>
-        <p>Course archive of Aayush Pandey, student number 202537201.</p>
-    </header>
+  <main>
+    <section class="overview" aria-label="Course overview and student profile">
+      <article class="progress-panel reveal">
+        <div class="panel-label"><span class="mini-icon">↗</span> COURSE OVERVIEW</div>
+        <div class="progress-heading"><strong>12 course weeks</strong><span>Weeks 1–12</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Course archive weeks listed" aria-valuemin="0" aria-valuemax="12" aria-valuenow="12"><span></span></div>
+        <p>From the foundations of HTML and CSS to modern React applications.</p>
+      </article>
+      <article class="profile-panel reveal">
+        <div class="avatar">AP</div>
+        <div class="profile-copy"><span class="profile-kicker">STUDENT PROFILE</span><h2>Aayush Pandey</h2><p>Student ID: 202537201<br>Web Programming</p></div>
+        <span class="profile-star" aria-hidden="true">✳</span>
+      </article>
+    </section>
 
-    <main>
+    <section id="coursework" class="coursework">
+      <div class="section-heading reveal">
+        <div><span class="section-kicker">THE COURSE ARCHIVE</span><h2>Explore the coursework<span>.</span></h2></div>
+        <p>Choose a week to open its assignments and projects.</p>
+      </div>
 
-        <h2>Choose a week</h2>
+      <ul class="masonry-grid">
+        <li class="tile tile-large reveal">
+          <a class="week-card" href="week1/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=900&q=80" alt="Web page layout displayed on a laptop" loading="lazy"><span class="image-label">HTML FOUNDATIONS</span></div>
+            <div class="card-content"><span class="num">01</span><div class="card-copy"><h3>Week 1</h3><p>HTML basics: headings, text, links, images and lists.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week2/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Laptop and notebook on a desk for web design work" loading="lazy"><span class="image-label">SEMANTIC HTML</span></div>
+            <div class="card-content"><span class="num">02</span><div class="card-copy"><h3>Week 2</h3><p>Semantic HTML, figures, FAQs and a portfolio page.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week3/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" alt="CSS and web development code on a monitor" loading="lazy"><span class="image-label">CSS DESIGN</span></div>
+            <div class="card-content"><span class="num">03</span><div class="card-copy"><h3>Week 3</h3><p>CSS styling, the box model, navigation and advanced CSS.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-wide reveal">
+          <a class="week-card" href="week4/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1100&q=80" alt="JavaScript source code on a computer screen" loading="lazy"><span class="image-label">JAVASCRIPT · DOM</span></div>
+            <div class="card-content"><span class="num">04</span><div class="card-copy"><h3>Week 4</h3><p>JavaScript DOM and events: counter, dark mode, to-do list and live search.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week5/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Developer working through programming exercises" loading="lazy"><span class="image-label">JAVASCRIPT PRACTICE</span></div>
+            <div class="card-content"><span class="num">05</span><div class="card-copy"><h3>Week 5</h3><p>JavaScript practice: counter app, grade checker, loops and HTML text.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week6/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=900&q=80" alt="Programming code displayed on a laptop screen" loading="lazy"><span class="image-label">FETCH API</span></div>
+            <div class="card-content"><span class="num">06</span><div class="card-copy"><h3>Week 6</h3><p>Fetch API, async/await, jokes and API practice.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week7/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=80" alt="Shelves of books in a library" loading="lazy"><span class="image-label">BOOK SEARCH</span></div>
+            <div class="card-content"><span class="num">07</span><div class="card-copy"><h3>Week 7</h3><p>Book Search using the Fetch API and book details.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-wide reveal">
+          <a class="week-card" href="week8/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1100&q=80" alt="Planning and designing a web form on a computer" loading="lazy"><span class="image-label">FORMS & VALIDATION</span></div>
+            <div class="card-content"><span class="num">08</span><div class="card-copy"><h3>Week 8</h3><p>HTML Forms and Validation, JavaScript validation and SVG.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week9_1/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=900&q=80" alt="Accessible digital interface design on a screen" loading="lazy"><span class="image-label">ACCESSIBILITY</span></div>
+            <div class="card-content"><span class="num">09A</span><div class="card-copy"><h3>Week 9 — Part 1</h3><p>Web Accessibility: semantic HTML, alt text, accessible controls and Lighthouse.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week9_2/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Website analytics and performance dashboard" loading="lazy"><span class="image-label">WEB PERFORMANCE</span></div>
+            <div class="card-content"><span class="num">09B</span><div class="card-copy"><h3>Week 9 — Part 2</h3><p>Web Performance: Lighthouse reports, image formats, performance testing and defer.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-wide reveal">
+          <a class="week-card" href="week10_1/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1100&q=80" alt="Personal portfolio website displayed on a laptop" loading="lazy"><span class="image-label">PERSONAL PORTFOLIO</span></div>
+            <div class="card-content"><span class="num">10A</span><div class="card-copy"><h3>Week 10 — Part 1</h3><p>Personal portfolio and GitHub repositories.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week10_2/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Web developer workspace with laptop and code" loading="lazy"><span class="image-label">BOOK SEARCH APP</span></div>
+            <div class="card-content"><span class="num">10B</span><div class="card-copy"><h3>Week 10 — Part 2</h3><p>Book Search application and custom 404 error page.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week11_1/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=900&q=80" alt="React development technology illustration" loading="lazy"><span class="image-label">REACT · COMPONENTS</span></div>
+            <div class="card-content"><span class="num">11A</span><div class="card-copy"><h3>Week 11 — Part 1</h3><p>React Student Profile Card: components, props and personal academic profile.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="week11_2/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" alt="Frontend development code in an editor" loading="lazy"><span class="image-label">REACT PRACTICE</span></div>
+            <div class="card-content"><span class="num">11B</span><div class="card-copy"><h3>Week 11 — Part 2</h3><p>React practical exercises and project tasks.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-wide reveal">
+          <a class="week-card" href="week12/index.html">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1100&q=80" alt="Digital technology and interactive screen" loading="lazy"><span class="image-label">REACT · STATE & EFFECTS</span></div>
+            <div class="card-content"><span class="num">12</span><div class="card-copy"><h3>Week 12</h3><p>React State, Shopping Cart, Effects and useEffect practical exercises.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="https://202537201-pandeyaayush.github.io/my-portfolio/task1.html#contact" target="_blank" rel="noopener noreferrer">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=900&q=80" alt="Responsive personal portfolio web design" loading="lazy"><span class="image-label">MY WORK</span></div>
+            <div class="card-content"><span class="num special">AP</span><div class="card-copy"><h3>My Portfolio</h3><p>Personal portfolio showcasing my work, projects and contact information.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+        <li class="tile tile-medium reveal">
+          <a class="week-card" href="https://sushant0101n-gif.github.io/team-4-project/proposal/index.html" target="_blank" rel="noopener noreferrer">
+            <div class="card-image"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80" alt="Budget planning and finance notes on a desk" loading="lazy"><span class="image-label">TEAM PROJECT</span></div>
+            <div class="card-content"><span class="num special">TP</span><div class="card-copy"><h3>Team Project — Student Budget Tracker</h3><p>Team 4 proposal: student budgeting, income, expenses and budget tracking.</p></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
 
-        <ul class="rows">
-
-            <li>
-                <a class="row" href="week1/index.html">
-                    <span class="num">1</span>
-                    <span>
-                        <h3>Week 1</h3>
-                        <p>HTML basics: headings, text, links, images and lists.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week2/index.html">
-                    <span class="num">2</span>
-                    <span>
-                        <h3>Week 2</h3>
-                        <p>Semantic HTML, figures, FAQs and a portfolio page.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week3/index.html">
-                    <span class="num">3</span>
-                    <span>
-                        <h3>Week 3</h3>
-                        <p>CSS styling, the box model, navigation and advanced CSS.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week4/index.html">
-                    <span class="num">4</span>
-                    <span>
-                        <h3>Week 4</h3>
-                        <p>JavaScript DOM and events: counter, dark mode, to-do list and live search.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week5/index.html">
-                    <span class="num">5</span>
-                    <span>
-                        <h3>Week 5</h3>
-                        <p>JavaScript practice: counter app, grade checker, loops and HTML text.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week6/index.html">
-                    <span class="num">6</span>
-                    <span>
-                        <h3>Week 6</h3>
-                        <p>Fetch API, async/await, jokes and API practice.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week7/index.html">
-                    <span class="num">7</span>
-                    <span>
-                        <h3>Week 7</h3>
-                        <p>Book Search using the Fetch API and book details.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week8/index.html">
-                    <span class="num">8</span>
-                    <span>
-                        <h3>Week 8</h3>
-                        <p>HTML Forms and Validation, JavaScript validation and SVG.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week9_1/index.html">
-                    <span class="num">9A</span>
-                    <span>
-                        <h3>Week 9 — Part 1</h3>
-                        <p>Web Accessibility: semantic HTML, alt text, accessible controls and Lighthouse.</p>
-                    </span>
-                    <span class="go">Open part 1</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week9_2/index.html">
-                    <span class="num">9B</span>
-                    <span>
-                        <h3>Week 9 — Part 2</h3>
-                        <p>Web Performance: Lighthouse reports, image formats, performance testing and defer.</p>
-                    </span>
-                    <span class="go">Open part 2</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week10_1/index.html">
-                    <span class="num">10A</span>
-                    <span>
-                        <h3>Week 10 — Part 1</h3>
-                        <p>Personal portfolio and GitHub repositories.</p>
-                    </span>
-                    <span class="go">Open part 1</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week10_2/index.html">
-                    <span class="num">10B</span>
-                    <span>
-                        <h3>Week 10 — Part 2</h3>
-                        <p>Book Search application and custom 404 error page.</p>
-                    </span>
-                    <span class="go">Open part 2</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week11_1/index.html">
-                    <span class="num">11A</span>
-                    <span>
-                        <h3>Week 11 — Part 1</h3>
-                        <p>React Student Profile Card: components, props and personal academic profile.</p>
-                    </span>
-                    <span class="go">Open part 1</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week11_2/index.html">
-                    <span class="num">11B</span>
-                    <span>
-                        <h3>Week 11 — Part 2</h3>
-                        <p>React practical exercises and project tasks.</p>
-                    </span>
-                    <span class="go">Open part 2</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row" href="week12/index.html">
-                    <span class="num">12</span>
-                    <span>
-                        <h3>Week 12</h3>
-                        <p>React State, Shopping Cart, Effects and useEffect practical exercises.</p>
-                    </span>
-                    <span class="go">Open week</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row"
-                   href="https://202537201-pandeyaayush.github.io/my-portfolio/task1.html#contact"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <span class="num">A</span>
-                    <span>
-                        <h3>My Portfolio</h3>
-                        <p>Personal portfolio showcasing my work, projects and contact information.</p>
-                    </span>
-                    <span class="go">Open portfolio</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="row"
-                   href="https://sushant0101n-gif.github.io/team-4-project/proposal/index.html"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <span class="num">P</span>
-                    <span>
-                        <h3>Team Project — Student Budget Tracker</h3>
-                        <p>Team 4 proposal: student budgeting, income, expenses and budget tracking.</p>
-                    </span>
-                    <span class="go">Open project</span>
-                </a>
-            </li>
-
-        </ul>
-
-    </main>
-
-    <footer class="site-footer">
-        Created by Aayush Pandey | Student ID: 202537201
-    </footer>
-
+  <footer class="site-footer"><span>Created by <strong>Aayush Pandey</strong></span><span class="footer-dot">·</span><span>Student ID: 202537201</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a></footer>
 </body>
 </html>
-```
