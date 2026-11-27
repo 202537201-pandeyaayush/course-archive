@@ -168,7 +168,12 @@ export default function App() {
       <a href={\`mailto:\${email}\`}>{email}</a>
     </article>
   );
-}`}><div className="profile-demo-grid"><ProfileCard name="Course Instructor" role="Web Programming Instructor" email="instructor@example.edu"/><ProfileCard name="Aayush Pandey" role="Computer Science Student" email="aayush@example.com" avatarUrl={photoUrl}/></div></Exercise>
+}`}>
+            <div className="profile-demo-grid">
+              <ProfileCard name="Sample Student" role="Computer Science Student" email="student@example.edu"/>
+              <ProfileCard name="Aayush Pandey" role="Computer Science Student" email="aayush@example.com" avatarUrl={photoUrl}/>
+            </div>
+          </Exercise>
 
           <Exercise number="E2" title="Filter a notification list" description="Render notifications from an array, choose an icon from each type, and filter the visible messages." code={`const iconByType = {
   success: "✓",
@@ -181,7 +186,9 @@ export default function App() {
     <span>{iconByType[item.type]}</span>
     {item.message}
   </li>
-))}`}><NotificationDemo/></Exercise>
+))}`}>
+            <NotificationDemo/>
+          </Exercise>
 
           <Exercise number="E3" title="Reusable content with children" description="Use the children prop to place different content inside the same card wrapper." code={`function ReusableCard({ title, children }) {
   return (
@@ -190,7 +197,12 @@ export default function App() {
       {children}
     </section>
   );
-}`}><div className="two-mini-grid"><ReusableCard title="Lecture topics"><ul><li>Components</li><li>Props</li><li>JSX</li></ul></ReusableCard><ReusableCard title="This week's work"><p>Build a profile card and a filterable project gallery.</p></ReusableCard></div></Exercise>
+}`}>
+            <div className="two-mini-grid">
+              <ReusableCard title="Lecture topics"><ul><li>Components</li><li>Props</li><li>JSX</li></ul></ReusableCard>
+              <ReusableCard title="This week's work"><p>Build a profile card and a filterable project gallery.</p></ReusableCard>
+            </div>
+          </Exercise>
 
           <Exercise number="HW1" title="Student directory" description="Pass five values to a StudentCard component and render each student from an array." code={`function StudentCard({ name, studentId, major, year, gpa }) {
   return (
@@ -206,7 +218,9 @@ export default function App() {
 
 {studentDirectory.map((student) => (
   <StudentCard key={student.studentId} {...student} />
-))}`}><div className="directory-grid">{studentDirectory.map(item=><StudentCard key={item.studentId} {...item}/>)}</div></Exercise>
+))}`}>
+            <div className="directory-grid">{studentDirectory.map(item=><StudentCard key={item.studentId} {...item}/>)}</div>
+          </Exercise>
 
           <Exercise number="HW2" title="Technology-filtered project gallery" description="Use a selected technology to filter a collection of project cards." code={`const categories = ["All", ...new Set(
   projects.flatMap((project) => project.tech)
@@ -214,11 +228,19 @@ export default function App() {
 
 const visibleProjects = active === "All"
   ? projects
-  : projects.filter((project) => project.tech.includes(active));`}><ProjectGallery/></Exercise>
+  : projects.filter((project) => project.tech.includes(active));`}>
+            <ProjectGallery/>
+          </Exercise>
 
           <Exercise number="P1" title="One greeting, different props" description="Give a component a default prop value and reuse it with different names." code={`function Greeting({ name = "World" }) {
   return <p>Hello, {name}!</p>;
-}`}><div className="greeting-stack"><Greeting/><Greeting name="Aayush"/><Greeting name="Gachon University"/></div></Exercise>
+}`}>
+            <div className="greeting-stack">
+              <Greeting/>
+              <Greeting name="Aayush"/>
+              <Greeting name="Gachon University"/>
+            </div>
+          </Exercise>
 
           <Exercise number="P2" title="Product stock status" description="Use a boolean prop to show whether an item is available." code={`function ProductCard({ name, price, rating, inStock }) {
   return (
@@ -229,13 +251,20 @@ const visibleProjects = active === "All"
       <p>{inStock ? "In stock" : "Out of stock"}</p>
     </article>
   );
-}`}><div className="two-mini-grid"><ProductCard name="Wireless Mouse" price={29000} rating={4.6} inStock={true}/><ProductCard name="USB-C Hub" price={45000} rating={4.2} inStock={false}/></div></Exercise>
+}`}>
+            <div className="two-mini-grid">
+              <ProductCard name="Wireless Mouse" price={29000} rating={4.6} inStock={true}/>
+              <ProductCard name="USB-C Hub" price={45000} rating={4.2} inStock={false}/>
+            </div>
+          </Exercise>
 
           <Exercise number="P3" title="Render a list with stable keys" description="Use each record's unique ID as the React key when rendering a list." code={`{students.map((item) => (
   <li key={item.id}>
     {item.name} — {item.grade}
   </li>
-))}`}><StudentList students={[{id:"s1",name:"Web Programming",grade:"A"},{id:"s2",name:"Computer Science",grade:"A-"},{id:"s3",name:"Project Practice",grade:"B+"}]}/></Exercise>
+))}`}>
+            <StudentList students={[{id:"s1",name:"Web Programming",grade:"A"},{id:"s2",name:"Computer Science",grade:"A-"},{id:"s3",name:"Project Practice",grade:"B+"}]}/>
+          </Exercise>
 
           <Exercise number="P4" title="Conditional sign-in interface" description="Switch between signed-out and signed-in content using conditional rendering." code={`const [user, setUser] = useState(null);
 
@@ -244,10 +273,16 @@ const visibleProjects = active === "All"
 
 <button onClick={() => setUser(user ? null : { name: "Aayush" })}>
   {user ? "Sign out" : "Sign in"}
-</button>`}><ConditionalDemo/></Exercise>
+</button>`}>
+            <ConditionalDemo/>
+          </Exercise>
         </div>
       </section>
     </main>
-    <footer className="site-footer"><a href="../../index.html">← Course archive</a><span>WEEK 11_1 · REACT COMPONENTS &amp; PROPS</span><a href="../../week11_2/index.html">Continue to Week 11_2 →</a></footer>
+    <footer className="site-footer">
+      <a href="../../index.html">← Course archive</a>
+      <span>WEEK 11_1 · REACT COMPONENTS &amp; PROPS</span>
+      <a href="../../week11_2/index.html">Continue to Week 11_2 →</a>
+    </footer>
   </div>;
 }
