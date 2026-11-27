@@ -1,0 +1,30 @@
+WEEK 12 — UPLOAD INSTRUCTIONS
+Student: Aayush Pandey | Student ID: 202537201
+
+FOLDER STRUCTURE
+week12/
+  index.html              Week 12 landing page
+  assets/style.css        Course archive styling
+  part1/                  React State & Shopping Cart
+  part2/                  React Effects & useEffect
+
+HOW TO UPLOAD
+1. Open your course-archive GitHub repository.
+2. Upload the complete week12 folder to the repository root.
+3. Keep the existing Weeks 1–11 and root assets folder unchanged.
+4. Add the Week 12 homepage row shown below to the root index.html, then commit.
+
+HOMEPAGE ROW TO ADD INSIDE THE EXISTING <ul class="rows">:
+
+<li>
+    <a class="row" href="week12/index.html">
+        <span class="num">12</span>
+        <span>
+            <h3>Week 12</h3>
+            <p>React State, Shopping Cart, Effects and useEffect.</p>
+        </span>
+        <span class="go">Open week</span>
+    </a>
+</li>
+
+The production builds are already included under each part's dist/ folder. Do not upload node_modules.
