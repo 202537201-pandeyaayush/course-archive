@@ -79,7 +79,7 @@ export default function App() {
       <a href={\`mailto:\${email}\`}>{email}</a>
     </article>
   );
-}`, children: _jsxs("div", { className: "profile-demo-grid", children: [_jsx(ProfileCard, { name: "Course Instructor", role: "Web Programming Instructor", email: "instructor@example.edu" }), _jsx(ProfileCard, { name: "Aayush Pandey", role: "Computer Science Student", email: "aayush@example.com", avatarUrl: photoUrl })] }) }), _jsx(Exercise, { number: "E2", title: "Filter a notification list", description: "Render notifications from an array, choose an icon from each type, and filter the visible messages.", code: `const iconByType = {
+}`, children: _jsxs("div", { className: "profile-demo-grid", children: [_jsx(ProfileCard, { name: "Sample Student", role: "Computer Science Student", email: "student@example.edu" }), _jsx(ProfileCard, { name: "Aayush Pandey", role: "Computer Science Student", email: "aayush@example.com", avatarUrl: photoUrl })] }) }), _jsx(Exercise, { number: "E2", title: "Filter a notification list", description: "Render notifications from an array, choose an icon from each type, and filter the visible messages.", code: `const iconByType = {
   success: "✓",
   warning: "!",
   info: "i",
